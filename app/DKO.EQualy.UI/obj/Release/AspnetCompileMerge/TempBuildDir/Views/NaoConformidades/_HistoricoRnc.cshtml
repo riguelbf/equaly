@@ -1,0 +1,48 @@
+﻿@model  List<DKO.EQualy.Domain.Entities.Historico>
+
+<div class="row-fluid" style="overflow: scroll; max-height: 500px;min-height: 450px;">
+    <div class="span12">
+        <h3>Histórico</h3>
+        @{
+            if (Model.ToList().Count <= 0 || Model == null)
+            {
+                <br />
+                <h4>Não existem dados históricos.</h4>
+            }
+        }
+        <ul class="timeline" style="margin: 10px 20px 10px 10px !important;">
+            @{
+
+                var index = 0;
+
+                foreach (var historico in Model)
+                {
+                    <li class="@( (index % 2) == 0 ? "timeline-grey" : "timeline-yellow") ">
+                        <div class="timeline-time">
+                            <span class=" date">
+                                @historico.DataCriacao.ToShortDateString()
+                            </span>
+                            <span class="time">@historico.DataCriacao.ToShortTimeString()</span>
+                        </div>
+                        <div class="timeline-icon"><i class="icon-time"></i></div>
+                        <div class="timeline-body">
+                            <h2>@historico.Tipo</h2>
+                            <div class="timeline-content">
+                                @historico.Decricao<br />
+                                <span>Ação do usuário: @historico.UsuarioCriou.Nome</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    index++;
+                }
+            }
+        </ul>
+    </div>
+</div>
+<div class="form-actions" style="text-align: right;">
+    <button type="button" data-dismiss="modal" class="btn"><i class="m-icon-swapleft"></i> Fechar</button>
+</div>
+<!-- scripts -->
+<link href="~/Content/assets/css/pages/timeline.css" rel="stylesheet" />
+

@@ -1,0 +1,26 @@
+﻿@model List<DKO.EQualy.Domain.Entities.Mensagem>
+
+<table class="table table-hover" id="tabelaMensagens">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Titulo</th>
+            <th>Data</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var mensagem in Model)
+        {
+            <tr>
+                <td>@mensagem.Id</td>
+                <td>@mensagem.Titulo</td>
+                <td>@mensagem.DataCriacao</td>
+                <td>
+                    <a href="@Url.Action("EditarMensagem", "Perfil", new { id = @mensagem.Id })" rel="tooltip" title="Editar" id="btnEditar" class="btn icn-only"><i class="icon-edit"></i></a>
+                    <a href="@Url.Action("ExcluirMensagem", "Perfil", new { id = @mensagem.Id })" rel="tooltip" title="Excluir" id="btnExcluir" class="btn red icn-only"><i class="icon-trash"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

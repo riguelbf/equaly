@@ -1,0 +1,231 @@
+﻿@{
+    ViewBag.Title = "Perfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using DKO.EQualy.Domain.Entities
+@model DKO.Equaly.DTO.Usuario.PerfilDto
+
+
+
+<div class="span12">
+    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+    <h3 class="page-title" style="color: #169ef4 !important;">
+        Perfil Usuário <small style="color: red;">dados pessoais</small>
+    </h3>
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home"></i>
+            <a href="index.html">Home</a>
+            <i class="icon-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">Usuário</a>
+            <i class="icon-angle-right"></i>
+        </li>
+        <li><a href="#">Perfil Usuário</a></li>
+    </ul>
+    <!-- END PAGE TITLE & BREADCRUMB-->
+
+    <div class="row-fluid profile">
+        <div class="span12">
+            <!--BEGIN TABS-->
+            <div class="tabbable tabbable-custom tabbable-full-width">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_1_1" data-toggle="tab">Visão geral</a></li>
+                    <li><a href="#tab_2_2" data-toggle="tab">Dados perfil</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane row-fluid profile-account" id="tab_1_1">
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <div class="span3">
+                                    <ul class="ver-inline-menu tabbable margin-bottom-10">
+                                        <li class="active">
+                                            <a data-toggle="tab" href="#tab_1-1">
+                                                <i class="icon-tasks"></i>Tarefas
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="tab" href="#tab_1-2"><i class="icon-comments"></i> Mensagens/Alertas</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="span9">
+                                    <div class="tab-content">
+                                        <div id="tab_1-1" class="tab-pane  active">
+                                            <div style="height: auto;" id="accordion1-1" class="accordion collapse">
+                                                <form action="#">
+                                                    <div class="m-wrap span12">
+                                                        <!-- BEGIN SAMPLE TABLE PORTLET-->
+                                                        <div class="portlet box blue">
+                                                            <div class="portlet-title">
+                                                                <div class="caption"><i class="icon-tasks"></i>Tarefas</div>
+                                                                <div class="actions">
+                                                                    <a href="@Url.Action("EditarTarefa", "Perfil", new { idAtividade = 0 })" rel="tooltip" title="Adicionar tarefa" id="btnNovaTarefa" class="btn">Nova Tarefa <i class="icon-plus"></i></a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="portlet-body">
+                                                                @{ Html.RenderPartial("_TabelaTarefas", Model.Atividades.ToList()); }
+                                                            </div>
+                                                        </div>
+                                                        <!-- END SAMPLE TABLE PORTLET-->
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div id="tab_1-2" class="tab-pane">
+                                            <div style="height: auto;" id="accordion1-2" class="accordion collapse">
+                                                <form action="#">
+                                                    <div class="m-wrap span12">
+                                                        <!-- BEGIN SAMPLE TABLE PORTLET-->
+                                                        <div class="portlet box blue">
+                                                            <div class="portlet-title">
+                                                                <div class="caption"><i class="icon-comments"></i>Mensagens/Alertas</div>
+                                                                <div class="actions">
+                                                                    <a href="@Url.Action("EditarMensagem", "Perfil", new { mensagem = new Mensagem() })" rel="tooltip" title="Adicionar mensagem" id="btnNovaMensagem" class="btn">Nova mensagem <i class="icon-plus"></i></a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="portlet-body">
+                                                                @{ Html.RenderPartial("_TabelaMensagens", Model.Mensagens.ToList()); }
+                                                            </div>
+                                                        </div>
+                                                        <!-- END SAMPLE TABLE PORTLET-->
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end span9-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--end tab-pane-->
+                    <div class="tab-pane row-fluid profile-account" id="tab_2_2">
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <div class="span3">
+                                    <ul class="ver-inline-menu tabbable margin-bottom-10">
+                                        <li class="active">
+                                            <a data-toggle="tab" href="#tab_2-1">
+                                                <i class="icon-cog"></i>
+                                                Informações pessoais
+                                            </a>
+                                            <span class="after"></span>
+                                        </li>
+                                        <li><a data-toggle="tab" href="#tab_2-2"><i class="icon-picture"></i> Alterar foto perfil</a></li>
+                                        <li><a data-toggle="tab" href="#tab_2-3"><i class="icon-lock"></i> Alterar senha</a></li>
+                                    </ul>
+                                </div>
+                                <div class="span9">
+                                    <div class="tab-content">
+                                        <div id="tab_2-1" class="tab-pane">
+                                                <div style="height: auto;" id="accordion2-1" class="accordion collapse">
+                                                    @using (Ajax.BeginForm("AtualizarDadosPerfil", "Perfil", new AjaxOptions
+                                                    {
+                                                        LoadingElementId = "loader", // div with .gif loader - that is shown when data are loading
+                                                        OnFailure = "obterResultadoAtulizarPerfilError",
+                                                        OnSuccess = "obterResultadoAtulizarPerfilSuccess",
+                                                        HttpMethod = "POST"
+                                                    }))
+                                                    {
+                                                        <div id="frm-dadosPerfil">
+                                                            @Html.HiddenFor(model => model.Usuario.Id)
+                                                            <label class="control-label">Nome</label>
+                                                            @Html.TextBoxFor(model => model.Usuario.Nome, new { @class = "m-wrap span8", @id = "txtNome" })
+                                                            <label class="control-label">Nome usuário</label>
+                                                            @Html.TextBoxFor(model => model.Usuario.NomeUsuario, new { @class = "m-wrap span8", @id = "txtNomeUsuario" })
+                                                            <label class="control-label">Matrícula</label>
+                                                            @Html.TextBoxFor(model => model.Usuario.Matricula, new { @class = "m-wrap span8", @id = "txtMatricula" })
+                                                            <label class="control-label">Email</label>
+                                                            @Html.TextBoxFor(model => model.Usuario.Email, new { @class = "m-wrap span8", @id = "txtEmail" })
+                                                            <label class="control-label">Setor</label>
+                                                            <div class="controls">
+                                                                <select class="m-wrap span12">
+                                                                    <option value="">Admin</option>
+                                                                    <option value="">Processos</option>
+                                                                    <option value="">Comercial</option>
+                                                                    <option value="">Gerência</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="submit-btn">
+                                                                <input type="submit" value="Salvar" class="btn green" id="btnSalvarDadosPerfil" />
+                                                                <input type="reset" value="Cancelar" class="btn" />
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                        </div>
+                                        <div id="tab_2-2" class="tab-pane">
+                                            <div style="height: auto;" id="accordion2-2" class="accordion collapse">
+                                                @using (Ajax.BeginForm("AtualizarFotoPerfil", "Perfil", new AjaxOptions
+                                                {
+                                                    LoadingElementId = "loader",
+                                                    OnSuccess = "obterResultadoAtulizarFotoSuccess",
+                                                    OnFailure = "obterResultadoAtulizarFotoError",
+                                                    HttpMethod = "post"
+
+                                                }, new { enctype = "multipart/form-data", id = "frm-AtualizarFoto" }))
+                                                {
+                                                    <div class="control-group">
+                                                        <div class="controls">
+                                                            @Html.LabelFor(model => model.Arquivo)
+                                                            @Html.TextBoxFor(model => model.Arquivo, new { type = "file" })
+                                                            @Html.ValidationMessageFor(model => model.Arquivo)
+                                                        </div>
+                                                    </div>
+                                                    <div class="submit-btn">
+                                                        <input type="submit" value="Alterar foto" class="btn green" id="btnAlterarFoto" />
+                                                        <input type="reset" value="Cancelar" class="btn" />
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                        <div id="tab_2-3" class="tab-pane">
+                                            <div style="height: auto;" id="accordion3-3" class="accordion collapse">
+                                                @using (Ajax.BeginForm("AtualizarSenha", "Perfil", new AjaxOptions
+                                                {
+                                                    LoadingElementId = "loader",
+                                                    OnSuccess = "obterResultadoAtulizarSenhaSuccess",
+                                                    OnFailure = "obterResultadoAtulizarSenhaError",
+                                                    HttpMethod = "POST"
+                                                }, new { @novalidate = "novalidate" }))
+                                                {
+                                                    @Html.ValidationSummary()
+                                                    @Html.HiddenFor(model => model.Usuario.Id)
+                                                    @Html.LabelFor(model => model.Senha, new { @class = "control-label" })
+                                                    @Html.PasswordFor(model => model.Senha, new { @class = "m-wrap span8" })
+                                                    @Html.ValidationMessageFor(model => model.Senha)
+
+                                                    @Html.LabelFor(model => model.NovaSenha, new { @class = "control-label" })
+                                                    @Html.PasswordFor(model => model.NovaSenha, new { @class = "m-wrap span8" })
+                                                    @Html.ValidationMessageFor(model => model.NovaSenha)
+
+                                                    @Html.LabelFor(model => model.ConfirmaSenha, new { @class = "control-label" })
+                                                    @Html.PasswordFor(model => model.ConfirmaSenha, new { @class = "m-wrap span8" })
+                                                    @Html.ValidationMessageFor(model => model.ConfirmaSenha)
+
+                                                    <div class="submit-btn">
+                                                        <input type="submit" value="Alterar senha" class="btn green" />
+                                                        <input type="reset" value="Cancelar" class="btn" />
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end span9-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--end tab-pane-->
+                </div>
+            </div>
+            <!--END TABS-->
+        </div>
+    </div>
+    <div id="modalAtividade" style="display: none">
+    </div>
+</div>
+<script src="~/Scripts/Usuario/perfil.js"></script>

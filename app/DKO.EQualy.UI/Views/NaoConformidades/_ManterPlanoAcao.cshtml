@@ -1,0 +1,109 @@
+﻿@model DKO.Equaly.DTO.NaoConformidade.PlanoDeAcao.ManterPlanoDeAcaoDto
+
+<div id="modalManterPlanoDeAcao" class="modal hide fade" tabindex="-1" data-width="850">
+    <div class="modal-body">
+        <div class="row-fluid">
+            <div class="portlet box red">
+                <div class="portlet-title">
+                    <div class="caption"><i class="icon-reorder"></i>Manter plano de ação</div>
+                    <div class="tools">
+                        <a href="javascript:;" data-dismiss="modal" class="remove"></a>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    @Html.HiddenFor(model => model.PlanoDeAcaoId, new { @id = "hfId" })
+                    @Html.HiddenFor(model => model.Indice, new { @id = "hfIndice" })
+                    <div class="row-fluid">
+                        <div class="span6 ">
+                            <div class="control-group">
+                                @Html.LabelFor(model => model.OQue, new { @class = "control-label" })
+                                <div class="controls">
+                                    @Html.TextAreaFor(model => model.OQue, new { @class = "span12 m-wrap", @id = "txtOque", @required = "required", @title = "Campo obrigatório" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span6">
+                            <div class="controls">
+                                @Html.LabelFor(model => model.Quando, new { @class = "control-label" })
+                                <div class="input-append date date-picker m-wrap span11" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
+                                    @Html.TextBoxFor(model => model.Quando, new { @class = "m-wrap date-picker span12", @id = "txtQuando", @required = "required", @title = "Campo obrigatório" })<span class="add-on"><i class="icon-calendar"></i></span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div class="control-group">
+                                @Html.LabelFor(model => model.Quem, new { @class = "control-label" })
+                                <div class="controls">
+                                    @Html.DropDownListFor(model => model.UsuarioResponsavelId, new SelectList(ViewBag.EquipeEnvolvidaPlanoDeAcao, "Value", "Text"), "Selecione...", new { @class = "span12 m-wrap", @id = "selectQuem", @required = "required" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span6 ">
+                            <div class="control-group">
+                                @Html.LabelFor(model => model.TipoDePlanoDeAcao, new { @class = "control-label" })
+                                <div class="controls">
+                                    @Html.DropDownListFor(model => model.TipoDePlanoDeAcaoValor, new SelectList(ViewBag.TiposPlanoDeAcao, "Value", "Text"), "Selecione...", new { @class = "span12 m-wrap", @id = "selectTipoDePlano", @required = "required", @title = "Campo obrigatório" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span6 ">
+                            <div class="control-group">
+                                @Html.LabelFor(model => model.Como, new { @class = "control-label" })
+                                <div class="controls">
+                                    @Html.TextAreaFor(model => model.Como, new { @class = "span12 m-wrap", @id = "txtComo" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span6 ">
+                            <div class="control-group">
+                                @Html.LabelFor(model => model.PorQue, new { @class = "control-label" })
+                                <div class="controls">
+                                    @Html.TextAreaFor(model => model.PorQue, new { @class = "span12 m-wrap", @id = "txtPorQue" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span6 ">
+                            <div class="control-group">
+                                @Html.LabelFor(model => model.Onde, new { @class = "control-label" })
+                                <div class="controls">
+                                    @Html.TextAreaFor(model => model.Onde, new { @class = "span12 m-wrap", @id = "txtOnde" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span6 ">
+                            <div class="control-group">
+                                @Html.LabelFor(model => model.QuantoCusta, new { @class = "control-label" })
+                                <div class="controls">
+                                    @Html.TextBoxFor(model => model.QuantoCusta, new { @class = "span12 m-wrap", @id = "txtQuantoCusta" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span6 ">
+                            <div class="control-group">
+                                @Html.LabelFor(model => model.Status, new { @class = "control-label" })
+                                <div class="controls">
+                                    @Html.DropDownListFor(model => model.Status, new SelectList(ViewBag.StatusPlanoDeAcao, "Value", "Text"), "Selecione...", new { @class = "span12 m-wrap", @id = "selectStatus", @required = "required", @title = "Campo obrigatório" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions" style="text-align: right;">
+                        <button type="button" class="btn green" id="btnAdicionarPlanoDeAcao"> Salvar <i class="icon-ok"></i></button>
+                        <a href="javascript:;" data-dismiss="modal" class="btn">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--- scripts -->
+        <script src="~/Scripts/NaoConformidade/PlanoAcao/manterPlanoAcao.js"></script>
+    </div>
+</div>

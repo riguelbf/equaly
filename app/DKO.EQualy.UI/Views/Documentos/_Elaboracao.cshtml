@@ -1,0 +1,50 @@
+﻿@model DKO.Equaly.DTO.Documentos.SolicitacaoDocumentoDto
+<div>
+    <div class="row-fluid">
+
+
+        @*@using (Ajax.BeginForm("ExecucaoFase2", "Documentos", new AjaxOptions
+            {
+                LoadingElementId = "loaderModal", // div with .gif loader - that is shown when data are loading
+                OnFailure = "obterResultadoFase2Error",
+                OnSuccess = "obterResultadoFase2Success",
+                HttpMethod = "POST",
+            }, new { @id = "frmRevisao", @enctype = "multipart/form-data"  ,@data_ajax = "false" }))*@
+        @using (Html.BeginForm("ExecucaoFase2", "Documentos", FormMethod.Post, new { enctype = "multipart/form-data", id = "frmRevisao" }))
+        {
+            @Html.HiddenFor(model => model.Id)
+            if (ViewBag.MensagemFase2 == "Success")
+            {
+                <div class="alert alert-success hide" style="display: block;">
+                    <button class="close" data-dismiss="alert"></button>
+                    Arquivo salvo com sucesso!
+                </div>
+            }
+            else if (ViewBag.MensagemFase2 == "Error")
+            {
+                <div class="alert alert-error hide" style="display: block;">
+                    <button class="close" data-dismiss="alert"></button>
+                    Erro ao tentar salvar o documento
+                </div>
+            }
+            <h3>Elaboração</h3>
+            <div class="scroller" style="max-height: 400px;min-height: 400px; overflow: auto; width: auto;" data-always-visible="1" data-rail-visible1="1">
+                <div class="row-fluid">
+                    <div class="span12" style="margin-left: 1px">
+                        <div class="control-group">
+                            <label class="control-label" for="PostedFile">Selecione um arquivo para envio</label>
+                            <div class="controls">
+                                <input type="file" id="postedFile" name="PostedFile" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions" style="text-align: right;">
+                <button type="button" data-dismiss="modal" class="btn"><i class="m-icon-swapleft"></i> Cancelar</button>
+                <button type="submit" class="btn green" id="btnEnviarSolicitacao"><i class="icon-ok"></i> Enviar para revisão</button>
+            </div>
+        }
+    </div>
+</div>
+<script src="~/Scripts/Documentos/Elaboracao/elaboracao.js"></script>

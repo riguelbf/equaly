@@ -1,0 +1,669 @@
+﻿@{
+    ViewBag.Title = "DashBoard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row-fluid">
+    <div class="span12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+            Dashboard <small>estatísticas e posição atual</small>
+        </h3>
+        <ul class="breadcrumb">
+            <li>
+                <i class="icon-home"></i>
+                <a href="index.html">Home</a>
+                <i class="icon-angle-right"></i>
+            </li>
+            <li><a href="#">Dashboard</a></li>
+            <li class="pull-right no-text-shadow">
+                <div id="dashboard-report-range" class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive"
+                     data-tablet="" data-desktop="tooltips" data-placement="top" data-original-title="Altere o período do dashboard" style="display: block;">
+                    <i class="icon-calendar"></i>
+                    <span>Junho 13, 2014 - Agosto 20, 2014</span>
+                    <i class="icon-angle-down"></i>
+                </div>
+            </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+<div>
+    <div id="dashboard">
+        <!-- BEGIN DASHBOARD STATS -->
+        <div class="row-fluid">
+            <div class="span3 responsive" data-tablet="span6" data-desktop="span3">
+                <div class="dashboard-stat blue">
+                    <div class="visual">
+                        <i class="icon-comments"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">
+                            4
+                        </div>
+                        <div class="desc">
+                            Novos feedbacks
+                        </div>
+                    </div>
+                    <a class="more" href="#">
+                        Mais informações <i class="m-icon-swapright m-icon-white"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="span3 responsive" data-tablet="span6" data-desktop="span3">
+                <div class="dashboard-stat green">
+                    <div class="visual">
+
+                        <img src="~/Content/assets/img/wrench.png" style="height:55px;margin-top:10px;" />
+                    </div>
+                    <div class="details">
+                        <div class="number">8</div>
+                        <div class="desc">Ações Corretivas</div>
+                    </div>
+                    <a class="more" href="#/acaoCorretiva">
+                        Mais informações <i class="m-icon-swapright m-icon-white"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="span3 responsive" data-tablet="span6  fix-offset" data-desktop="span3">
+                <div class="dashboard-stat purple">
+                    <div class="visual">
+                        <img src="~/Content/assets/img/suitcase.png" style="height: 55px; margin-top: 7px;" />
+                    </div>
+                    <div class="details">
+                        <div class="number">+89%</div>
+                        <div class="desc">Ações Preventivas</div>
+                    </div>
+                    <a class="more" href="#/acaoPreventiva">
+                        Mais informações <i class="m-icon-swapright m-icon-white"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="span3 responsive" data-tablet="span6" data-desktop="span3">
+                <div class="dashboard-stat yellow">
+                    <div class="visual">
+                        <i class="icon-bar-chart"></i>
+                    </div>
+                    <div class="details">
+                        <div class="number">+ 85</div>
+                        <div class="desc">Indicadores</div>
+                    </div>
+                    <a class="more" href="#/indicadores">
+                        Mais informações <i class="m-icon-swapright m-icon-white"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- END DASHBOARD STATS -->
+        <div class="clearfix"></div>
+        <div class="row-fluid">
+            <!-- ATIVIDADES -->
+            <div class="span6">
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-bell"></i>Atividades recentes</div>
+                        <div class="actions">
+                            <div class="btn-group">
+                                <a class="btn" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                    Filtrar por
+                                    <i class="icon-angle-down"></i>
+                                </a>
+                                <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+                                    <label><div class="checker"><span><input type="checkbox"></span></div> Ações Preventivas</label>
+                                    <label><div class="checker"><span class="checked"><input type="checkbox" checked=""></span></div>Ações Corretivas</label>
+                                    <label><div class="checker"><span><input type="checkbox"></span></div>Criação de documentos</label>
+                                    <label><div class="checker"><span><input type="checkbox"></span></div>Treinamentos</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 300px;">
+                            <div class="scroller" style="height: 300px; overflow: hidden; width: auto;" data-always-visible="1" data-rail-visible="0">
+                                <ul class="feeds">
+                                    <li>
+                                        <div class="col1">
+                                            <div class="cont">
+                                                <div class="cont-col1">
+                                                    <div class="label label-info">
+                                                        <i class="icon-check"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="cont-col2">
+                                                    <div class="desc">
+                                                        Você tem 4 atividades pendentes
+                                                        <span class="label label-warning label-mini">
+                                                            iniciar atividade
+                                                            <i class="icon-share-alt"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col2">
+                                            <div class="date">
+                                                Agora mesmo
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="col1">
+                                                <div class="cont">
+                                                    <div class="cont-col1">
+                                                        <div class="label label-success">
+                                                            <i class="icon-bar-chart"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cont-col2">
+                                                        <div class="desc">
+                                                            Criação de ação preventiva
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col2">
+                                                <div class="date">
+                                                    20 min
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <!--<li>
+                                        <div class="col1">
+                                            <div class="cont">
+                                                <div class="cont-col1">
+                                                    <div class="label label-important">
+                                                        <i class="icon-user"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="cont-col2">
+                                                    <div class="desc">
+                                                        You have 5 pending membership that requires a quick review.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col2">
+                                            <div class="date">
+                                                24 mins
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col1">
+                                            <div class="cont">
+                                                <div class="cont-col1">
+                                                    <div class="label label-info">
+                                                        <i class="icon-shopping-cart"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="cont-col2">
+                                                    <div class="desc">
+                                                        New order received with <span class="label label-success">Reference Number: DR23923</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col2">
+                                            <div class="date">
+                                                30 mins
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col1">
+                                            <div class="cont">
+                                                <div class="cont-col1">
+                                                    <div class="label label-success">
+                                                        <i class="icon-user"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="cont-col2">
+                                                    <div class="desc">
+                                                        You have 5 pending membership that requires a quick review.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col2">
+                                            <div class="date">
+                                                24 mins
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col1">
+                                            <div class="cont">
+                                                <div class="cont-col1">
+                                                    <div class="label">
+                                                        <i class="icon-bell-alt"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="cont-col2">
+                                                    <div class="desc">
+                                                        Web server hardware needs to be upgraded.
+                                                        <span class="label label-inverse label-mini">Overdue</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col2">
+                                            <div class="date">
+                                                2 hours
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="col1">
+                                                <div class="cont">
+                                                    <div class="cont-col1">
+                                                        <div class="label label-inverse">
+                                                            <i class="icon-briefcase"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cont-col2">
+                                                        <div class="desc">
+                                                            IPO Report for year 2013 has been released.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col2">
+                                                <div class="date">
+                                                    20 mins
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="col1">
+                                            <div class="cont">
+                                                <div class="cont-col1">
+                                                    <div class="label label-info">
+                                                        <i class="icon-check"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="cont-col2">
+                                                    <div class="desc">
+                                                        You have 4 pending tasks.
+                                                        <span class="label label-warning label-mini">
+                                                            Take action
+                                                            <i class="icon-share-alt"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col2">
+                                            <div class="date">
+                                                Just now
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="col1">
+                                                <div class="cont">
+                                                    <div class="cont-col1">
+                                                        <div class="label label-important">
+                                                            <i class="icon-bar-chart"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cont-col2">
+                                                        <div class="desc">
+                                                            Finance Report for year 2013 has been released.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col2">
+                                                <div class="date">
+                                                    20 mins
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="col1">
+                                            <div class="cont">
+                                                <div class="cont-col1">
+                                                    <div class="label label-inverse">
+                                                        <i class="icon-user"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="cont-col2">
+                                                    <div class="desc">
+                                                        You have 5 pending membership that requires a quick review.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col2">
+                                            <div class="date">
+                                                24 mins
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col1">
+                                            <div class="cont">
+                                                <div class="cont-col1">
+                                                    <div class="label label-info">
+                                                        <i class="icon-shopping-cart"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="cont-col2">
+                                                    <div class="desc">
+                                                        New order received with <span class="label label-success">Reference Number: DR23923</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col2">
+                                            <div class="date">
+                                                30 mins
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col1">
+                                            <div class="cont">
+                                                <div class="cont-col1">
+                                                    <div class="label label-success">
+                                                        <i class="icon-user"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="cont-col2">
+                                                    <div class="desc">
+                                                        You have 5 pending membership that requires a quick review.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col2">
+                                            <div class="date">
+                                                24 mins
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col1">
+                                            <div class="cont">
+                                                <div class="cont-col1">
+                                                    <div class="label label-warning">
+                                                        <i class="icon-bell-alt"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="cont-col2">
+                                                    <div class="desc">
+                                                        Web server hardware needs to be upgraded.
+                                                        <span class="label label-inverse label-mini">Overdue</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col2">
+                                            <div class="date">
+                                                2 hours
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="col1">
+                                                <div class="cont">
+                                                    <div class="cont-col1">
+                                                        <div class="label label-info">
+                                                            <i class="icon-briefcase"></i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cont-col2">
+                                                        <div class="desc">
+                                                            IPO Report for year 2013 has been released.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col2">
+                                                <div class="date">
+                                                    20 mins
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>-->
+                                </ul>
+                            </div><div class="slimScrollBar ui-draggable" style="width: 7px; position: absolute; top: 38px; opacity: 0.4; display: block; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; z-index: 99; right: 1px; height: 186.33540372670805px; background: rgb(161, 178, 189);"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; opacity: 0.2; z-index: 90; right: 1px; background: rgb(51, 51, 51);"></div>
+                        </div>
+                        <div class="scroller-footer">
+                            <div class="pull-right">
+                                <a href="#">Ver todos os registros <i class="m-icon-swapright m-icon-gray"></i></a> &nbsp;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- TAREFAS -->
+            <div class="span6">
+                <div class="portlet box green tasks-widget">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-check"></i>Tarefas pendentes</div>
+                        <div class="tools">
+                            <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                            <a href="" class="reload"></a>
+                        </div>
+                        <div class="actions">
+                            <div class="btn-group">
+                                <a class="btn mini" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                    Ferramentas
+                                    <i class="icon-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#"><i class="i"></i> Todos documentos</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Pendentes <span class="badge badge-important">4</span></a></li>
+                                    <li><a href="#">Completas <span class="badge badge-success">12</span></a></li>
+                                    <li><a href="#">Atrasada <span class="badge badge-warning">9</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="task-content">
+                            <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 305px;">
+                                <div class="scroller" style="height: 305px; overflow: hidden; width: auto;" data-always-visible="1" data-rail-visible1="1">
+                                    <!-- START TASK LIST -->
+                                    <ul class="task-list unstyled">
+                                        <li class="task-done">
+                                            <div class="task-checkbox">
+                                                <div class="checker"><span class="checked"><input type="checkbox" class="liChild" value="" style=""></span></div>
+                                            </div>
+                                            <div class="task-title">
+                                                <span class="task-title-sp">Aprovação de documento</span>
+                                                <span class="label label-success">Aprovado</span>
+                                            </div>
+                                            <div class="task-config">
+                                                <div class="task-config-btn btn-group">
+                                                    <a class="btn mini blue" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">More <i class="icon-angle-down"></i></a>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="#"><i class="icon-ok"></i> Complete</a></li>
+                                                        <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+                                                        <li><a href="#"><i class="icon-trash"></i> Cancel</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="task-done">
+                                            <div class="task-checkbox">
+                                                <div class="checker"><span class="checked"><input type="checkbox" class="liChild" value="" style=""></span></div>
+                                            </div>
+                                            <div class="task-title">
+                                                <span class="task-title-sp">Hold An Interview for Marketing Manager Position</span>
+                                                <span class="label label-important">Atrasada</span>
+                                            </div>
+                                            <div class="task-config">
+                                                <div class="task-config-btn btn-group">
+                                                    <a class="btn mini blue" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">More <i class="icon-angle-down"></i></a>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="#"><i class="icon-ok"></i> Complete</a></li>
+                                                        <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+                                                        <li><a href="#"><i class="icon-trash"></i> Cancel</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!--<li>
+                                            <div class="task-checkbox">
+                                                <div class="checker"><span><input type="checkbox" class="liChild" value="" style=""></span></div>
+                                            </div>
+                                            <div class="task-title">
+                                                <span class="task-title-sp">AirAsia Intranet System Project Internal Meeting</span>
+                                                <span class="label label-success">AirAsia</span>
+                                                <span class="task-bell"><i class="icon-bell"></i></span>
+                                            </div>
+                                            <div class="task-config">
+                                                <div class="task-config-btn btn-group">
+                                                    <a class="btn mini blue" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">More <i class="icon-angle-down"></i></a>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="#"><i class="icon-ok"></i> Complete</a></li>
+                                                        <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+                                                        <li><a href="#"><i class="icon-trash"></i> Cancel</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="task-checkbox">
+                                                <div class="checker"><span><input type="checkbox" class="liChild" value="" style=""></span></div>
+                                            </div>
+                                            <div class="task-title">
+                                                <span class="task-title-sp">Technical Management Meeting</span>
+                                                <span class="label label-warning">Company</span>
+                                            </div>
+                                            <div class="task-config">
+                                                <div class="task-config-btn btn-group">
+                                                    <a class="btn mini blue" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">More <i class="icon-angle-down"></i></a>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="#"><i class="icon-ok"></i> Complete</a></li>
+                                                        <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+                                                        <li><a href="#"><i class="icon-trash"></i> Cancel</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="task-checkbox">
+                                                <div class="checker"><span><input type="checkbox" class="liChild" value="" style=""></span></div>
+                                            </div>
+                                            <div class="task-title">
+                                                <span class="task-title-sp">Kick-off Company CRM Mobile App Development</span>
+                                                <span class="label label-info">Internal Products</span>
+                                            </div>
+                                            <div class="task-config">
+                                                <div class="task-config-btn btn-group">
+                                                    <a class="btn mini blue" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">More <i class="icon-angle-down"></i></a>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="#"><i class="icon-ok"></i> Complete</a></li>
+                                                        <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+                                                        <li><a href="#"><i class="icon-trash"></i> Cancel</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="task-checkbox">
+                                                <div class="checker"><span><input type="checkbox" class="liChild" value="" style=""></span></div>
+                                            </div>
+                                            <div class="task-title">
+                                                <span class="task-title-sp">
+                                                    Prepare Commercial Offer For SmartVision Website Rewamp
+                                                </span>
+                                                <span class="label label-important">SmartVision</span>
+                                            </div>
+                                            <div class="task-config">
+                                                <div class="task-config-btn btn-group">
+                                                    <a class="btn mini blue" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">More <i class="icon-angle-down"></i></a>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="#"><i class="icon-ok"></i> Complete</a></li>
+                                                        <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+                                                        <li><a href="#"><i class="icon-trash"></i> Cancel</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="task-checkbox">
+                                                <div class="checker"><span><input type="checkbox" class="liChild" value="" style=""></span></div>
+                                            </div>
+                                            <div class="task-title">
+                                                <span class="task-title-sp">Sign-Off The Comercial Agreement With AutoSmart</span>
+                                                <span class="label label-inverse">AutoSmart</span>
+                                                <span class="task-bell"><i class="icon-bell"></i></span>
+                                            </div>
+                                            <div class="task-config">
+                                                <div class="task-config-btn btn-group">
+                                                    <a class="btn mini blue" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">More <i class="icon-angle-down"></i></a>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="#"><i class="icon-ok"></i> Complete</a></li>
+                                                        <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+                                                        <li><a href="#"><i class="icon-trash"></i> Cancel</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="task-checkbox">
+                                                <div class="checker"><span><input type="checkbox" class="liChild" value="" style=""></span></div>
+                                            </div>
+                                            <div class="task-title">
+                                                <span class="task-title-sp">Company Staff Meeting</span>
+                                                <span class="label label-success">Cruise</span>
+                                                <span class="task-bell"><i class="icon-bell"></i></span>
+                                            </div>
+                                            <div class="task-config">
+                                                <div class="task-config-btn btn-group">
+                                                    <a class="btn mini blue" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">More <i class="icon-angle-down"></i></a>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="#"><i class="icon-ok"></i> Complete</a></li>
+                                                        <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+                                                        <li><a href="#"><i class="icon-trash"></i> Cancel</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="last-line">
+                                            <div class="task-checkbox">
+                                                <div class="checker"><span><input type="checkbox" class="liChild" value="" style=""></span></div>
+                                            </div>
+                                            <div class="task-title">
+                                                <span class="task-title-sp">KeenThemes Investment Discussion</span>
+                                                <span class="label label-warning">KeenThemes</span>
+                                            </div>
+                                            <div class="task-config">
+                                                <div class="task-config-btn btn-group">
+                                                    <a class="btn mini blue" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">More <i class="icon-angle-down"></i></a>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="#"><i class="icon-ok"></i> Complete</a></li>
+                                                        <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+                                                        <li><a href="#"><i class="icon-trash"></i> Cancel</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>-->
+                                    </ul>
+                                    <!-- END START TASK LIST -->
+                                </div><div class="slimScrollBar ui-draggable" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; z-index: 99; right: 1px; height: 252.7853260869565px; background: rgb(161, 178, 189);"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; opacity: 0.2; z-index: 90; right: 1px; background: rgb(51, 51, 51);"></div>
+                            </div>
+                        </div>
+                        <div class="task-footer">
+                            <span class="pull-right">
+                                <a href="#">Ver Todas as tarefas <i class="m-icon-swapright m-icon-gray"></i></a> &nbsp;
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+

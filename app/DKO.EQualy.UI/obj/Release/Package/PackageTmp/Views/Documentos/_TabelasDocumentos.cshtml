@@ -1,0 +1,100 @@
+﻿@model DKO.Equaly.Projection.Documentos.DocumentosProjection
+
+<div class="tabbable tabbable-custom" id="tabelaDocumentos">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#tabDocumentos_1_1" data-toggle="tab">Documentos solicitados</a></li>
+        <li class=""><a href="#tabDocumentos_1_2" data-toggle="tab">Documentos disponibilizados</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="tabDocumentos_1_1">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption"><i class="icon-file-text"></i>Documentos solicitados</div>
+                    <div class="actions">
+                        <a href="@Url.Action("NovoDocumento", "Documentos" )" rel="tooltip" title="Solicitar novo documento" id="btnNovoDocumento" class="btn black">Solicitar Documento <i class="icon-plus" style="background-color: black;"></i></a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <table class="table table-hover" id="tabelaDocumentosSolicitados">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Titulo</th>
+                                <th>Setor</th>
+                                <th>Solicitante</th>
+                                <th>Data Criação</th>
+                                <th>Fase</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null)
+                            {
+                                foreach (var documentos in Model.DocumentosSolicitados)
+                                {
+                                    <tr>
+                                        <td>@documentos.Codigo</td>
+                                        <td>@documentos.Titulo</td>
+                                        <td>@documentos.Setor</td>
+                                        <td>@documentos.Solicitante</td>
+                                        <td>@documentos.DataCriacao</td>
+                                        <td>@documentos.Fase</td>
+                                        <td>
+                                            <a href="@Url.Action("EditarDocumento", "Documentos", new { documentoId = @documentos.Codigo })" rel="tooltips" data-original-title="Edita um documento criado" title="Editar" name="btnEditar" class="btn icn-only"><i class="icon-edit"></i></a>
+                                            <a href="@Url.Action("ExcluirDocumento", "Documentos", new { documentoId = @documentos.Codigo })" rel="tooltip" title="Excluir" class="btn red icn-only" name="btnExcluir"><i class="icon-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="tabDocumentos_1_2">
+            <div class="tab-pane active" id="tabDocumentos_1_1">
+                <div class="portlet box grey">
+                    <div class="portlet-title">
+                        <div class="caption"><i class="icon-file-text"></i>Documentos disponibilizados</div>
+                    </div>
+                    <div class="portlet-body">
+                        <table class="table table-hover" id="tabelaDocumentosDisponibilizados">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Tipo</th>
+                                    <th>Titulo</th>
+                                    <th>Setor reponsável</th>
+                                    <th>Armazenamento</th>
+                                    <th>Validade</th>
+                                    <th>Download</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null)
+                                {
+                                    foreach (var documentosDisponivel in Model.DocumentosDisponibilizados)
+                                    {
+                                        <tr>
+                                            <td>@documentosDisponivel.Codigo</td>
+                                            <td>@documentosDisponivel.Tipo</td>
+                                            <td>@documentosDisponivel.Titulo</td>
+                                            <td>@documentosDisponivel.SetorResponsavel</td>
+                                            <td>@documentosDisponivel.Armazenamento</td>
+                                            <td>@documentosDisponivel.Validade</td>
+
+                                            <td>
+                                                <a href="@Url.Action("DownloadDocDisponivel", "Documentos", new { documentoId = @documentosDisponivel.Codigo })" rel="tooltip" title="Download arquivo" class="icn-only"><img src="@Url.Content("~")/Content/assets/img/iconGrid/@documentosDisponivel.NomeIcone" style="height: 30px;" /></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Documentos/tabelasDocumento.js"></script>

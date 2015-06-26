@@ -1,0 +1,5 @@
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\tests\Test\bin\Debug\Test.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\tests\Test\bin\Debug\Test.pdb
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\tests\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\tests\Test\obj\Debug\Test.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\tests\Test\obj\Debug\Test.pdb

@@ -1,0 +1,13 @@
+Commands Migrations
+
+Recreate DataBase:
+Update-Database -TargetMigration: $InitialDatabase
+
+Create Migrations:
+Add-Migrations "name migration"
+
+Run Migrations
+Update_DataBase
+
+Change old version migration
+Update-Database –TargetMigration: "201409271220459_correction in database 4"

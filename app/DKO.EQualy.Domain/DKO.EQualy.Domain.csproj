@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C451DD62-55B9-4A4C-84D4-BD9E8C07B04D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DKO.EQualy.Domain</RootNamespace>
+    <AssemblyName>DKO.EQualy.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Eficacia.cs" />
+    <Compile Include="Entities\HistoricoRnc.cs" />
+    <Compile Include="Entities\PlanoDeAcao.cs" />
+    <Compile Include="Entities\AprovacaoDocumento.cs" />
+    <Compile Include="Entities\Atividade.cs" />
+    <Compile Include="Entities\AvaliacaoDocumento.cs" />
+    <Compile Include="Entities\CausaRaiz.cs" />
+    <Compile Include="Entities\CincoPorQues.cs" />
+    <Compile Include="Entities\Documento.cs" />
+    <Compile Include="Entities\EntityBase.cs" />
+    <Compile Include="Entities\Ferramenta5W2H.cs" />
+    <Compile Include="Entities\Mensagem.cs" />
+    <Compile Include="Entities\Menu.cs" />
+    <Compile Include="Entities\MenuItem.cs" />
+    <Compile Include="Entities\NaoConformidade.cs" />
+    <Compile Include="Entities\NiveisAcesso.cs" />
+    <Compile Include="Entities\Permissao.cs" />
+    <Compile Include="Entities\Reclamativa.cs" />
+    <Compile Include="Entities\Setor.cs" />
+    <Compile Include="Entities\Usuario.cs" />
+    <Compile Include="Enum\Arquivo.cs" />
+    <Compile Include="Enum\Atividade.cs" />
+    <Compile Include="Enum\Documento.cs" />
+    <Compile Include="Enum\Historico.cs" />
+    <Compile Include="Enum\NaoConformidade.cs" />
+    <Compile Include="Enum\Registro.cs" />
+    <Compile Include="Enum\Usuario.cs" />
+    <Compile Include="Interfaces\Helpers\IEnumHelper.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Interfaces\Repository\IAprovacaoDocumentoRepository.cs" />
+    <Compile Include="Interfaces\Repository\IAtividadeRepository.cs" />
+    <Compile Include="Interfaces\Repository\IAvaliacaoDocumentoRepository.cs" />
+    <Compile Include="Interfaces\Repository\ICausaRaizRepository.cs" />
+    <Compile Include="Interfaces\Repository\ICincoPorQuesRepository.cs" />
+    <Compile Include="Interfaces\Repository\IDocumentoRepository.cs" />
+    <Compile Include="Interfaces\Repository\IFerramenta5W2HRepository.cs" />
+    <Compile Include="Interfaces\Repository\IHistoricoRepository.cs" />
+    <Compile Include="Interfaces\Repository\IMensagemRepository.cs" />
+    <Compile Include="Interfaces\Repository\IMenuItemRepository.cs" />
+    <Compile Include="Interfaces\Repository\IMenuRepository.cs" />
+    <Compile Include="Interfaces\Repository\INaoConformidadeRepository.cs" />
+    <Compile Include="Interfaces\Repository\INiveisAcessoRepository.cs" />
+    <Compile Include="Interfaces\Repository\IPlanoAcaoRepository.cs" />
+    <Compile Include="Interfaces\Repository\IReclamativaRepository.cs" />
+    <Compile Include="Interfaces\Repository\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\Repository\ISetorRepository.cs" />
+    <Compile Include="Interfaces\Repository\IUsuarioRepository.cs" />
+    <Compile Include="Interfaces\Service\IArquivoService.cs" />
+    <Compile Include="Interfaces\Service\IAtividadeService.cs" />
+    <Compile Include="Interfaces\Service\ICausaRaizService.cs" />
+    <Compile Include="Interfaces\Service\IDocumentoService.cs" />
+    <Compile Include="Interfaces\Service\IEficaciaService.cs" />
+    <Compile Include="Interfaces\Service\IEmailService.cs" />
+    <Compile Include="Interfaces\Service\IGerenciaDeIndicadoresService.cs" />
+    <Compile Include="Interfaces\Service\IIindicadoresService.cs" />
+    <Compile Include="Interfaces\Service\IMensagemService.cs" />
+    <Compile Include="Interfaces\Service\IMenuService.cs" />
+    <Compile Include="Interfaces\Service\INaoConformidadeService.cs" />
+    <Compile Include="Interfaces\Service\IPlanoDeAcaoService.cs" />
+    <Compile Include="Interfaces\Service\IReclamativaService.cs" />
+    <Compile Include="Interfaces\Service\ISetorService.cs" />
+    <Compile Include="Interfaces\Service\IUsuarioService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="DKO.EQualy.Domain, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DKO.EQualy.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="DKO.Equaly.Service">
+      <HintPath>..\DKO.Equaly.Service\bin\Debug\DKO.Equaly.Service.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DKO.Equaly.DTO\DKO.Equaly.DTO.csproj">
+      <Project>{6641E2E0-79FE-45C4-B125-1FBD6FCFEFD7}</Project>
+      <Name>DKO.Equaly.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DKO.Equaly.Projection\DKO.Equaly.Projection.csproj">
+      <Project>{9335F867-7499-451F-AB16-08C489A682A1}</Project>
+      <Name>DKO.Equaly.Projection</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

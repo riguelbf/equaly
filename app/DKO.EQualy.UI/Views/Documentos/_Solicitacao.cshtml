@@ -1,0 +1,145 @@
+﻿@{
+
+    var listaTipoDocumento = Enum.GetValues(typeof(DKO.EQualy.Domain.Enum.Documento.TipoDocumento)).Cast<DKO.EQualy.Domain.Enum.Documento.TipoDocumento>().Select(v => new SelectListItem
+    {
+        Text = v.ToString(),
+        Value = ((int)v).ToString()
+    });
+
+    var listaTipoArmazenamento = Enum.GetValues(typeof(DKO.EQualy.Domain.Enum.Documento.TipoDeArmazenamento)).Cast<DKO.EQualy.Domain.Enum.Documento.TipoDeArmazenamento>().Select(v => new SelectListItem
+    {
+        Text = v.ToString(),
+        Value = ((int)v).ToString()
+    });
+}
+
+@model DKO.Equaly.DTO.Documentos.SolicitacaoDocumentoDto
+<style>
+    #text:valid {
+        background: #006600;
+        color: #fff;
+    }
+
+    #text:invalid {
+        background: #990000;
+        color: #fff;
+    }
+</style>
+<div>
+    <div class="row-fluid">
+        @using (Ajax.BeginForm("ExecucaoFase1", "Documentos", new AjaxOptions
+        {
+            LoadingElementId = "loaderModal", // div with .gif loader - that is shown when data are loading
+            OnFailure = "obterResultadoFase1Error",
+            OnSuccess = "obterResultadoFase1Success",
+            HttpMethod = "POST",
+            UpdateTargetId = "tabelaDocumentos"
+        }, new { @id = "frmSolicitacao" }))
+        {
+            @Html.HiddenFor(model => model.Id, new { id = "hfIdSolicitacao" });
+            @Html.HiddenFor(model => model.FaseDocumento, new { id = "hfFaseDocumento" });
+            <h3>Solicitação</h3>
+            <div class="scroller" style="max-height: 400px; overflow: auto; width: auto;" data-always-visible="1" data-rail-visible1="1">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="control-group">
+                            @Html.LabelFor(model => model.Titulo, new { @class = "control-label" })
+                            <div class="controls">
+                                @Html.TextBoxFor(model => model.Titulo, new { @class = "m-wrap span12", id = "txtTitulo" ,@name="txtTitulo",@required="required", @title="Campo obrigatório"})
+                                @Html.ValidationMessageFor(model => model.Titulo)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span12" style="margin-left: 2px">
+                        <div class="span6">
+                            <div class="control-group">
+                                <div class="controls">
+                                    @Html.LabelFor(model => model.DataEmissao, new { @class = "control-label" })
+                                    <div class="input-append date date-picker m-wrap span12" data-date-format="dd-mm-yyyy" data-date-viewmode="years" style="margin-left: -2px;">
+                                        @Html.TextBoxFor(model => model.DataEmissao, new { @class = "m-wrap span11", id = "txtDataEmissao", @readonly = "readyonly", @required = "required", @title = "Campo obrigatório" })<span class="add-on"><i class="icon-calendar"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span6">
+                            <div class="control-group">
+                                @Html.LabelFor(model => model.NumeroRevisao, new { @class = "control-label" })
+                                <div class="controls">
+                                    @Html.TextBoxFor(model => model.NumeroRevisao, new { @class = "m-wrap span12", @disabled = "disabled" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span12" style="margin-left: 1px">
+                        <div class="span6">
+                            <div class="control-group">
+                                <label class="control-label">Tipo documento</label>
+                                @Html.DropDownListFor(model => model.TipoDocumento, new SelectList(listaTipoDocumento.ToList(), "Value", "Text"), "Selecione...", new { @class = "span12 m-wrap", @required="required", title="Campo obrigatório" })
+                            </div>
+                        </div>
+                        <div class="span6 ">
+                            <div class="control-group">
+                                <label class="control-label">Tipo armazenamento</label>
+                                @Html.DropDownListFor(model => model.TipoDeArmazenamento, new SelectList(listaTipoArmazenamento.ToList(), "Value", "Text"), "Selecione...", new { @class = "span12 m-wrap", @required = "required", @title = "Campo obrigatório" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span12" style="margin-left: 1px">
+                        <div class="control-group">
+                            @Html.LabelFor(model => model.SetorID, new { @class = "control-label" })
+                            <div class="controls">
+                                @Html.DropDownListFor(model => model.SetorID, new SelectList((List<DKO.EQualy.Domain.Entities.Setor>)ViewBag.Setores, "Id", "Nome"), "Selecione...", new { @class = "span12 m-wrap", @required = "required", @title = "Campo obrigatório" ,id="selectSetor"})
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span12" style="margin-left: 1px">
+                        <div class="control-group">
+                            @Html.LabelFor(model => model.UsuariosSolicitanteId, new { @class = "control-label" })
+                            <div class="controls">
+                                @Html.DropDownListFor(model => model.UsuariosSolicitanteId, new SelectList((List<DKO.EQualy.Domain.Entities.Usuario>)ViewBag.Usuarios, "Id", "Nome"), "Selecione...", new { @class = "span12 m-wrap", @required = "required", @title = "Campo obrigatório" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span12" style="margin-left: 1px">
+                        <div class="control-group">
+                            @Html.LabelFor(model => model.UsuariosAprovadorId, new { @class = "control-label" })
+                            <div class="controls">
+                                @Html.DropDownListFor(model => model.UsuariosAprovadorId, new SelectList((List<DKO.EQualy.Domain.Entities.Usuario>)ViewBag.Usuarios, "Id", "Nome"), "Selecione...", new { @class = "span12 m-wrap", @required = "required", @title = "Campo obrigatório" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span12" style="margin-left: 1px">
+                        <div class="control-group">
+                            @Html.LabelFor(model => model.UsuariosRevisores, new { @class = "control-label" })
+                            <div class="controls">
+                                @Html.ListBoxFor(model => model.UsuariosRevisores, new MultiSelectList((List<DKO.EQualy.Domain.Entities.Usuario>)ViewBag.Usuarios, "Id", "Nome", Model.UsuariosRevisores), new { @class = "span12 m-wrap", Multiple = "multiple", Size = 5, style = "width: 100%;", @required = "required", @title = "Campo obrigatório" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span12" style="margin-left: 1px">
+                        <div class="control-group">
+                            <div class="controls">
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                </div>
+            </div>
+            <div class="form-actions" style="text-align: right;">
+                <button type="button" data-dismiss="modal" class="btn"><i class="m-icon-swapleft"></i> Cancelar</button>
+                @if (@Model != null && @Model.Id <= 0)
+                {
+
+                    <button type="submit" class="btn green"><i class="icon-ok"></i> Solicitar</button>
+                }
+                else
+                {
+                    <button type="submit" class="btn green"><i class="icon-ok"></i> Atualizar</button>
+                }
+            </div>
+        }
+    </div>
+</div>
+<!-- scripts -->
+<script src="~/Scripts/Documentos/Solicitacao/solicitacao.js"></script>
+

@@ -1,0 +1,30 @@
+﻿@model List<DKO.EQualy.Domain.Entities.Atividade>
+
+<table class="table table-striped table-bordered table-hover table-full-width dataTable" id="tabelaTarefas">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Titulo</th>
+            <th>Tipo</th>
+            <th>Status</th>
+            <th>Data</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var atividade in Model)
+        {
+            <tr>
+                <td>@atividade.Id</td>
+                <td>@atividade.Titulo</td>
+                <td>@atividade.Tipo</td>
+                <td>@atividade.StatusAtividade</td>
+                <td>@atividade.DataCriacao.ToShortDateString()</td>
+                <td>
+                    <a href="@Url.Action("EditarTarefa", "Perfil", new { idAtividade = @atividade.Id })" rel="tooltip" title="Editar" id="btnEditarTarefa" class="btn icn-only"><i class="icon-edit"></i></a>
+                    <a href="@Url.Action("ExcluirTarefa", "Perfil", new { idAtividade = @atividade.Id })" rel="tooltip" title="Excluir" id="btnExcluirTarefa" name="btnExcluirTarefa" class="btn red icn-only"><i class="icon-trash"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,142 @@
+﻿@using System.Globalization
+@using DKO.EQualy.Domain.Enum
+@using DKO.Equaly.Service.Concrete
+@using DKO.EQualy.UI.Controllers
+@using DKO.EQulay.Infra.Repositories
+
+@model DKO.Equaly.DTO.Menu.MenuSuperiorDto
+<ul class="nav pull-right">
+   
+    @if (Model != null)
+    {
+        <!-- START INBOX DROPDOWN -->
+        <li class="dropdown" id="header_inbox_bar">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <i class="icon-envelope"></i>
+                <span class="badge">@Model.Mensagens.Count</span>
+            </a>
+            <ul class="dropdown-menu extended inbox">
+                <li>
+                    <p>Você tem @Model.Mensagens.Count novas mensagens</p>
+                </li>
+                <li>
+                    <ul class="dropdown-menu-list scroller" style="height:250px">
+                        @foreach (var itemMenu in Model.Mensagens)
+                        {
+                            <li>
+                                <a href="inbox.html?a=view">
+                                    <span class="photo"><img src="~/content/assets/img/avatar2.jpg" alt="" /></span>
+                                    <span class="subject">
+                                        <span class="from">@itemMenu.UsuarioCriou.Nome</span>
+                                        <span class="time">
+                                            if (@itemMenu.DataCriacao.AddHours(- DateTime.Now.Hour).Minute < 5){" agora mesmo";}
+                                            else{ @itemMenu.DataCriacao.AddHours(- DateTime.Now.Hour).Minute.ToString(CultureInfo.InvariantCulture) + " atrás";}
+                                        </span>
+                                    </span>
+                                    <span class="message">
+                                        @itemMenu.Titulo
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+                <li class="external">
+                    <a href="@Url.Action("Index", "Perfil")">Ver todas mensagens<i class=" m-icon-swapright"></i></a>
+                </li>
+            </ul>
+        </li>
+
+        <!-- START TASK DROPDOWN -->
+        <li class="dropdown" id="header_task_bar">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <i class="icon-tasks"></i>
+                <span class="badge">@Model.Tarefas.Count</span>
+            </a>
+            <ul class="dropdown-menu extended tasks">
+                <li>
+                    <p>Você tem @Model.Tarefas.Count tarefas pendentes</p>
+                </li>
+                <li>
+                    <ul class="dropdown-menu-list scroller" style="height:250px">
+                        @foreach (var menuItemTarefa in Model.Tarefas)
+                    {
+                            <li>
+                                <a href="#">
+                                    <span class="task">
+                                        <span class="desc">@menuItemTarefa.Titulo</span>
+                                        @switch (menuItemTarefa.Tipo)
+                                    {
+                                        case Atividade.TipoAtividade.AprovacaoDocumento:
+                                                <span class="badge badge-success"><i class="icon-plus-sign"></i></span>
+                                            break;
+
+                                        case Atividade.TipoAtividade.ElaboracaoDocumento:
+                                        <span class="badge badge-info"><i class="icon-edit"></i></span>
+                                        break;
+
+                                        case Atividade.TipoAtividade.Lembrete:
+                                        <span class="badge badge-info"><i class="icon-bell"></i></span>
+                                        break;
+
+                                        case Atividade.TipoAtividade.Pontuar:
+                                        <span class="badge badge-warning"><i class="icon-star-empty"></i></span>
+                                        break;
+                                    }
+                                        <span class="badge badge-success">*</span>
+                                    </span>
+                                </a>
+                            </li>
+                    }
+                    </ul>
+                </li>
+                <li class="external">
+                    <a href="@Url.Action("Index", "Perfil")">Ver todas tarefas <i class="m-icon-swapright"></i></a>
+                </li>
+            </ul>
+        </li>
+    }
+    else
+    {
+        <li class="dropdown" id="header_inbox_bar">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <i class="icon-envelope"></i>
+                <span class="badge">0</span>
+            </a>
+            <ul class="dropdown-menu extended inbox">
+                <li>
+                    <p>Não existem mensagens para você</p>
+                </li>
+            </ul>
+        </li>
+        <li class="dropdown" id="header_task_bar">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <i class="icon-tasks"></i>
+                <span class="badge">0</span>
+            </a>
+            <ul class="dropdown-menu extended tasks">
+                <li>
+                    <p>Não existem tarefas pendentes</p>
+                </li>
+            </ul>
+        </li>
+    }
+    <!-- END TODO DROPDOWN -->
+    <!-- BEGIN USER LOGIN DROPDOWN -->
+    <li class="dropdown user">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+            <img alt="" src="@(!string.IsNullOrEmpty(Model.Usuario.UrlFotoPerfil) ? Model.Usuario.UrlFotoPerfil : Url.Content("~/Content/assets/img/avatar.png"))" />
+            <span class="username">@Model.Usuario.Nome</span>
+            <i class="icon-angle-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="@Url.Action("Index", "Perfil")"><i class="icon-user"></i> Meu perfil</a></li>
+            <li><a href="@Url.Action("Index", "Perfil")"><i class="icon-envelope"></i> Minhas Mensagens @*<span class="badge badge-important">3</span>*@</a></li>
+            <li><a href="@Url.Action("Index", "Perfil")"><i class="icon-tasks"></i> Minhas tarefas @*<span class="badge badge-success">8</span>*@</a></li>
+            <li class="divider"></li>
+            <li><a href="@Url.Action("Logout", "Login")"><i class="icon-key"></i> Log Out</a></li>
+        </ul>
+    </li>
+    <!-- END USER LOGIN DROPDOWN -->
+    <!-- END USER LOGIN DROPDOWN -->
+</ul>

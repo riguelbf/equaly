@@ -1,0 +1,71 @@
+﻿@model DKO.Equaly.DTO.NaoConformidade.PlanoDeAcao.PlanoDeAcaoDto
+
+<div class="row-fluid">
+    <div class="span12">
+        <h3>Plano de ação</h3><br />
+        <button title="Incluir novo plano de ação" id="btnNovoPlanoAcao" class="btn black" style="float: right;margin-bottom: 15px;">Novo <i class="icon-plus"></i></button>
+        @Html.HiddenFor(model => model.NaoConformidadeId,new{@id="hrIdNaoConformidade"})
+        <div class="row-fluid">
+            <div class="span12" style="border: solid 1px #a9a9a9;padding: 5px;">
+                <table class="table table-hover" id="tabelaPlanoDeAcao">
+                    <thead>
+                        <tr>
+                            <th>Indice</th>
+                            <th>Id</th>
+                            <th>UsuarioId</th>
+                            <th>O que?</th>
+                            <th>Quando?</th>
+                            <th>Quem?</th>
+                            <th>TipoId</th>
+                            <th>Tipo</th>
+                            <th>Como?</th>
+                            <th>Por quê?</th>
+                            <th>Onde?</th>
+                            <th>Quanto custa?</th>
+                            <th>StatusId</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.PlanoDeAcaoProjections != null)
+                        {
+                            var index = 0;
+                            foreach (var planoDeAcao in Model.PlanoDeAcaoProjections)
+                            {
+                                <tr>
+                                    <td>index</td>
+                                    <td>@planoDeAcao.PlanoDeAcaoId</td>
+                                    <td>@planoDeAcao.UsuarioQuemId</td>
+                                    <td>@planoDeAcao.OQue</td>
+                                    <td>@planoDeAcao.Quando</td>
+                                    <td>@planoDeAcao.NomeQuem</td>
+                                    <td>@planoDeAcao.TipoDePlanoDeAcaoId</td>
+                                    <td>@planoDeAcao.TipoDePlanoDeAcao</td>
+                                    <td>@planoDeAcao.Como</td>
+                                    <td>@planoDeAcao.PorQue</td>
+                                    <td>@planoDeAcao.Onde</td>
+                                    <td>@planoDeAcao.QuantoCusta</td>
+                                    <td>@planoDeAcao.StatusId</td>
+                                    <td>@planoDeAcao.Status</td>
+                                    <td>
+                                        <button type="button" name="btnEditarPorque" class="btn icn-only" title="Editar o plano de ação selecionado"><i class="icon-edit"></i></button>
+                                        <button type="button" name="btnExcluirPorQue" class="btn red icn-only" title="Excluir o plano de ação selecionado"><i class="icon-trash"></i></button>
+                                    </td>
+                                </tr>
+                            
+                                index++;
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="form-actions" style="text-align: right;">
+            <button type="button" data-dismiss="modal" class="btn"><i class="m-icon-swapleft"></i> Cancelar</button>
+            <button type="button" class="btn green" id="btnSalvarPlanoDeAcao"><i class="icon-ok"></i> Salvar</button>
+        </div>
+        <script src="~/Scripts/NaoConformidade/PlanoAcao/planoDeAcao.js"></script>
+    </div>
+</div>
+

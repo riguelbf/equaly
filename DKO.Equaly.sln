@@ -1,0 +1,157 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKO.EQualy.UI", "app\DKO.EQualy.UI\DKO.EQualy.UI.csproj", "{C4829B44-FC13-442B-AA4B-DD1BD00FD997}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKO.EQualy.Domain", "app\DKO.EQualy.Domain\DKO.EQualy.Domain.csproj", "{C451DD62-55B9-4A4C-84D4-BD9E8C07B04D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKO.EQulay.Infra.Repositories", "app\DKO.EQulay.Infra.Repositories\DKO.EQulay.Infra.Repositories.csproj", "{A4015A99-3574-49FF-954F-5221E207363B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{9AABAE8B-23BA-46F7-B730-7D0A1C53E7E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{DDE897BE-5AFF-4E8D-949B-3206ED71DC64}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{A153BC94-44FD-43F6-82D3-1DDE2130B93E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2C35F3F0-1884-4A6B-BF1C-B44AE0417FD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKO.EQualy.Tests.Specs", "tests\DKO.EQualy.Test.Specs\DKO.EQualy.Tests.Specs.csproj", "{63D0C6EE-F483-4E18-B3BF-C36FEAD70E83}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{288DFBD7-BDF3-4708-BF8D-C625531523C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKO.Equaly.Service", "app\DKO.Equaly.Service\DKO.Equaly.Service.csproj", "{4D094CB3-101F-46A7-B39E-76121D5593B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKO.EQualy.Infra.IOC", "app\DKO.EQualy.Infra.IOC\DKO.EQualy.Infra.IOC.csproj", "{7EE6EEA3-9BA8-4612-BCF7-88106E5B6ED4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BF0CF3F2-F50C-4CE4-B8DE-2E205CB53A2E}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{20C76079-B9A5-4E5E-A3A2-590A8946D5F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKO.EQualy.CustomHelpers", "app\DKO.EQualy.CustomHelpers\DKO.EQualy.CustomHelpers.csproj", "{7F90D14E-FF9D-4B09-BCF4-C0489372D773}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reports", "Reports", "{78220FF5-820E-4029-879E-E3D6C17D69C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKO.Equaly.Reports", "app\DKO.Equaly.Reports\DKO.Equaly.Reports.csproj", "{A9507B80-539D-4113-A18D-D1D995CBAA4B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Crosscutting", "Crosscutting", "{895D1D29-3471-474D-A6B2-3816CA59B375}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKO.Equaly.DTO", "app\DKO.Equaly.DTO\DKO.Equaly.DTO.csproj", "{6641E2E0-79FE-45C4-B125-1FBD6FCFEFD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKO.Equaly.Projection", "app\DKO.Equaly.Projection\DKO.Equaly.Projection.csproj", "{9335F867-7499-451F-AB16-08C489A682A1}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 11
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dkosoftware.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = app\\DKO.Equaly.Service\\DKO.Equaly.Service.csproj
+		SccProjectTopLevelParentUniqueName1 = DKO.Equaly.sln
+		SccProjectName1 = app/DKO.Equaly.Service
+		SccLocalPath1 = app\\DKO.Equaly.Service
+		SccProjectUniqueName2 = app\\DKO.EQualy.Infra.IOC\\DKO.EQualy.Infra.IOC.csproj
+		SccProjectTopLevelParentUniqueName2 = DKO.Equaly.sln
+		SccProjectName2 = app/DKO.EQualy.Infra.IOC
+		SccLocalPath2 = app\\DKO.EQualy.Infra.IOC
+		SccProjectUniqueName3 = app\\DKO.EQualy.Domain\\DKO.EQualy.Domain.csproj
+		SccProjectTopLevelParentUniqueName3 = DKO.Equaly.sln
+		SccProjectName3 = app/DKO.EQualy.Domain
+		SccLocalPath3 = app\\DKO.EQualy.Domain
+		SccProjectUniqueName4 = app\\DKO.EQualy.UI\\DKO.EQualy.UI.csproj
+		SccProjectTopLevelParentUniqueName4 = DKO.Equaly.sln
+		SccProjectName4 = app/DKO.EQualy.UI
+		SccLocalPath4 = app\\DKO.EQualy.UI
+		SccProjectUniqueName5 = app\\DKO.EQulay.Infra.Repositories\\DKO.EQulay.Infra.Repositories.csproj
+		SccProjectTopLevelParentUniqueName5 = DKO.Equaly.sln
+		SccProjectName5 = app/DKO.EQulay.Infra.Repositories
+		SccLocalPath5 = app\\DKO.EQulay.Infra.Repositories
+		SccProjectUniqueName6 = tests\\DKO.EQualy.Test.Specs\\DKO.EQualy.Tests.Specs.csproj
+		SccProjectTopLevelParentUniqueName6 = DKO.Equaly.sln
+		SccProjectName6 = tests/DKO.EQualy.Test.Specs
+		SccLocalPath6 = tests\\DKO.EQualy.Test.Specs
+		SccProjectUniqueName7 = app\\DKO.EQualy.CustomHelpers\\DKO.EQualy.CustomHelpers.csproj
+		SccProjectTopLevelParentUniqueName7 = DKO.Equaly.sln
+		SccProjectName7 = app/DKO.EQualy.CustomHelpers
+		SccLocalPath7 = app\\DKO.EQualy.CustomHelpers
+		SccProjectUniqueName8 = app\\DKO.Equaly.Reports\\DKO.Equaly.Reports.csproj
+		SccProjectTopLevelParentUniqueName8 = DKO.Equaly.sln
+		SccProjectName8 = app/DKO.Equaly.Reports
+		SccLocalPath8 = app\\DKO.Equaly.Reports
+		SccProjectUniqueName9 = app\\DKO.Equaly.DTO\\DKO.Equaly.DTO.csproj
+		SccProjectTopLevelParentUniqueName9 = DKO.Equaly.sln
+		SccProjectName9 = app/DKO.Equaly.DTO
+		SccLocalPath9 = app\\DKO.Equaly.DTO
+		SccProjectUniqueName10 = app\\DKO.Equaly.Projection\\DKO.Equaly.Projection.csproj
+		SccProjectTopLevelParentUniqueName10 = DKO.Equaly.sln
+		SccProjectName10 = app/DKO.Equaly.Projection
+		SccLocalPath10 = app\\DKO.Equaly.Projection
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4829B44-FC13-442B-AA4B-DD1BD00FD997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4829B44-FC13-442B-AA4B-DD1BD00FD997}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4829B44-FC13-442B-AA4B-DD1BD00FD997}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4829B44-FC13-442B-AA4B-DD1BD00FD997}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C451DD62-55B9-4A4C-84D4-BD9E8C07B04D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C451DD62-55B9-4A4C-84D4-BD9E8C07B04D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C451DD62-55B9-4A4C-84D4-BD9E8C07B04D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C451DD62-55B9-4A4C-84D4-BD9E8C07B04D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4015A99-3574-49FF-954F-5221E207363B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4015A99-3574-49FF-954F-5221E207363B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4015A99-3574-49FF-954F-5221E207363B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4015A99-3574-49FF-954F-5221E207363B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63D0C6EE-F483-4E18-B3BF-C36FEAD70E83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63D0C6EE-F483-4E18-B3BF-C36FEAD70E83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63D0C6EE-F483-4E18-B3BF-C36FEAD70E83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63D0C6EE-F483-4E18-B3BF-C36FEAD70E83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D094CB3-101F-46A7-B39E-76121D5593B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D094CB3-101F-46A7-B39E-76121D5593B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D094CB3-101F-46A7-B39E-76121D5593B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D094CB3-101F-46A7-B39E-76121D5593B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EE6EEA3-9BA8-4612-BCF7-88106E5B6ED4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EE6EEA3-9BA8-4612-BCF7-88106E5B6ED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EE6EEA3-9BA8-4612-BCF7-88106E5B6ED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EE6EEA3-9BA8-4612-BCF7-88106E5B6ED4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F90D14E-FF9D-4B09-BCF4-C0489372D773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F90D14E-FF9D-4B09-BCF4-C0489372D773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F90D14E-FF9D-4B09-BCF4-C0489372D773}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F90D14E-FF9D-4B09-BCF4-C0489372D773}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9507B80-539D-4113-A18D-D1D995CBAA4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9507B80-539D-4113-A18D-D1D995CBAA4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9507B80-539D-4113-A18D-D1D995CBAA4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9507B80-539D-4113-A18D-D1D995CBAA4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6641E2E0-79FE-45C4-B125-1FBD6FCFEFD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6641E2E0-79FE-45C4-B125-1FBD6FCFEFD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6641E2E0-79FE-45C4-B125-1FBD6FCFEFD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6641E2E0-79FE-45C4-B125-1FBD6FCFEFD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9335F867-7499-451F-AB16-08C489A682A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9335F867-7499-451F-AB16-08C489A682A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9335F867-7499-451F-AB16-08C489A682A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9335F867-7499-451F-AB16-08C489A682A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C4829B44-FC13-442B-AA4B-DD1BD00FD997} = {A153BC94-44FD-43F6-82D3-1DDE2130B93E}
+		{C451DD62-55B9-4A4C-84D4-BD9E8C07B04D} = {9AABAE8B-23BA-46F7-B730-7D0A1C53E7E0}
+		{A4015A99-3574-49FF-954F-5221E207363B} = {DDE897BE-5AFF-4E8D-949B-3206ED71DC64}
+		{7EE6EEA3-9BA8-4612-BCF7-88106E5B6ED4} = {DDE897BE-5AFF-4E8D-949B-3206ED71DC64}
+		{63D0C6EE-F483-4E18-B3BF-C36FEAD70E83} = {2C35F3F0-1884-4A6B-BF1C-B44AE0417FD8}
+		{4D094CB3-101F-46A7-B39E-76121D5593B1} = {288DFBD7-BDF3-4708-BF8D-C625531523C8}
+		{7F90D14E-FF9D-4B09-BCF4-C0489372D773} = {20C76079-B9A5-4E5E-A3A2-590A8946D5F3}
+		{A9507B80-539D-4113-A18D-D1D995CBAA4B} = {78220FF5-820E-4029-879E-E3D6C17D69C8}
+		{6641E2E0-79FE-45C4-B125-1FBD6FCFEFD7} = {895D1D29-3471-474D-A6B2-3816CA59B375}
+		{9335F867-7499-451F-AB16-08C489A682A1} = {895D1D29-3471-474D-A6B2-3816CA59B375}
+	EndGlobalSection
+EndGlobal

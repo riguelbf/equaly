@@ -1,0 +1,14 @@
+Zanoni,
+
+Realizei as alterações relatadas nos pareceres, porém tenho alguns pontos para ver com você sendo eles:
+
+1 - a figura de mvc : eu acredito que a 2 imagem a que contem mais passos seja a melhor mas a banca não compreendeu todo o fluxo que desenhei pois detalha melhor os requests e responses das paginas mas coloquei outra mais padrão para você analisar.
+
+2 - Scrum - mencionaram que deveria ter planning, review e o lado do cliente não soube como me expressar nesses pontos vou precisar de um auxilio melhor seu.
+
+3 - as funcionalidades como estou desenvolvendo não coloquei todas ainda no documento
+
+4 - a validação lhe enviei uma solicitação para ver as questões e depois debatermos juntos.
+
+Fico no aguardo do seu parecer um abraço.
+

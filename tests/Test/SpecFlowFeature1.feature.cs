@@ -1,0 +1,6 @@
+﻿#error Parsing error near 'Funcionalidade: Efetuar o login Como um usuário cadastrado no sistema '
+#error Parsing error near 'Eu quero realizar autenticação no sistema'
+#error Parsing error near 'Contexto: Estar cadastrado no sistema e com situação ativo'
+#error Parsing error near 'Cenario : Realizar login'
+#error Parsing error near 'Dado  que exista um usuario "adminUser" e estar acom status "ativo"'
+#error Parsing error near 'E  que o usuario inpute as informações '

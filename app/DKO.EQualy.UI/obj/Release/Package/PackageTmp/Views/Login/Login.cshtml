@@ -1,0 +1,254 @@
+﻿@{
+    Layout = null;
+}
+
+@using DKO.EQulay.Infra.Repositories.Migrations
+@model  DKO.EQualy.Domain.Entities.Usuario
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <title>e-Qualy | Login</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="Riguel Figueiro" name="author" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+    <link href="~/Content/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/plugins/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/style-metro.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="~/Content/assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="~/content/assets/plugins/select2/select2_metro.css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="~/content/assets/css/pages/login-soft.css" rel="stylesheet" type="text/css" />
+
+    <!-- END PAGE LEVEL STYLES -->
+    <link rel="shortcut icon" href="~/favicon.png" />
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="login" data-ng-app="main" data-ng-controller="RootController">
+    <!-- BEGIN LOGO -->
+    <div class="logo">
+        <img src="~/content/assets/img/logoEqualy.png" style="height:45px;" alt="" />
+    </div>
+    <!-- END LOGO -->
+    <!-- BEGIN LOGIN -->
+    <div class="content">
+        <!-- BEGIN LOGIN FORM -->
+        @using (Ajax.BeginForm("Login", "Login", new AjaxOptions
+        {
+            LoadingElementId = "loader",
+            OnSuccess = "obterResultadoLoginError",
+            OnFailure = "obterResultadoLoginError",
+            HttpMethod = "POST",
+        }, new { @class = "form-vertical login-form" }))
+        {
+            <h3 class="form-title">Entre na sua conta</h3>
+            <div class="alert alert-error hide">
+                <button class="close" data-dismiss="alert"></button>
+                <span>Entre com seu usuário e senha.</span>
+            </div>
+            <div class="control-group">
+                <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                <label class="control-label visible-ie8 visible-ie9">Username</label>
+                <div class="controls">
+                    <div class="input-icon left">
+                        <i class="icon-user"></i>
+                        @Html.TextBoxFor(model => model.NomeUsuario, new { @class = "m-wrap placeholder-no-fix", @autocomplete = "off", @placeholder = "Usuário", @id = "txtNameUsuario" })
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label visible-ie8 visible-ie9">Password</label>
+                <div class="controls">
+                    <div class="input-icon left">
+                        <i class="icon-lock"></i>
+                        @Html.PasswordFor(model => model.Senha, new { @class = "m-wrap placeholder-no-fix", @autocomplete = "off", @placeholder = "Senha", @id = "txtPassword" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <label class="checkbox">
+                    <input type="checkbox" name="remember" value="1" /> Lembre-me
+                </label>
+                <button type="submit" class="btn red pull-right">
+                    Entrar <i class="m-icon-swapright m-icon-white"></i>
+                </button>
+            </div>
+
+            <span style="color: red; font-size: larger;">@ViewBag.ErrorMessage</span>
+
+            <div class="forget-password">
+                <h4>Esqueceu sua senha ?</h4>
+                <p>
+                    não se preocupe, clique <a href="javascript:;" id="forget-password">aqui </a>
+                    para redefinir sua senha.
+                </p>
+            </div>
+        }
+        
+        <div id="loader" style="display: none;" class="loader-backdrop">
+            <div class="loader-simbol">
+                <img src="~/Content/assets/img/ajax-modal-loading.gif" />
+                <div>
+                    Aguarde...<br /><span>processando a operação solicitada</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- END LOGIN FORM -->
+        <!-- BEGIN FORGOT PASSWORD FORM -->
+        @using (Ajax.BeginForm("RecoverPassword", "Login", new AjaxOptions
+        {
+            OnFailure = "obterResultadoLoginError()",
+            OnBegin = "obterResultadoLoginSuccess()",
+            HttpMethod = "POST",
+            LoadingElementId = "loader"
+        }, new { @class = "form-vertical forget-form" }))
+        {
+
+            <h3>Esqueci a Senha ?</h3>
+            <p>Digite abaixo seu endereço de e-mail para redefinir sua senha.</p>
+            <div class="control-group">
+                <div class="controls">
+                    <div class="input-icon left">
+                        <i class="icon-envelope"></i>
+                        @Html.TextBoxFor(model => model.Email, new { @class = "m-wrap placeholder-no-fix", @placeholder = "Email", @autocomplete = "off" })
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="form-actions">
+                <button type="button" id="back-btn" class="btn">
+                    <i class="m-icon-swapleft"></i> Voltar
+                </button>
+                <button type="submit" class="btn red pull-right">
+                    Enviar <i class="m-icon-swapright m-icon-white"></i>
+                </button>
+            </div>
+        }
+
+
+
+        <!-- END FORGOT PASSWORD FORM -->
+        <!-- BEGIN REGISTRATION FORM -->
+        @*<form class="form-vertical register-form" action="index.html" method="post">
+                <h3>Inscrever-se</h3>
+                <p>Enter your personal details below:</p>
+                <div class="control-group">
+                    <label class="control-label visible-ie8 visible-ie9">Full Name</label>
+                    <div class="controls">
+                        <div class="input-icon left">
+                            <i class="icon-font"></i>
+                            <input class="m-wrap placeholder-no-fix" type="text" placeholder="Nome completo" name="fullname" />
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                    <label class="control-label visible-ie8 visible-ie9">Email</label>
+                    <div class="controls">
+                        <div class="input-icon left">
+                            <i class="icon-envelope"></i>
+                            <input class="m-wrap placeholder-no-fix" type="text" placeholder="Email" name="email" />
+                        </div>
+                    </div>
+                </div>
+                <p>Digite os detalhes da sua conta abaixo:</p>
+                <div class="control-group">
+                    <label class="control-label visible-ie8 visible-ie9">Usuário</label>
+                    <div class="controls">
+                        <div class="input-icon left">
+                            <i class="icon-user"></i>
+                            <input class="m-wrap placeholder-no-fix" type="text" autocomplete="off" placeholder="Usuário" name="username" />
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label visible-ie8 visible-ie9">Senha</label>
+                    <div class="controls">
+                        <div class="input-icon left">
+                            <i class="icon-lock"></i>
+                            <input class="m-wrap placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Senha" name="password" />
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label visible-ie8 visible-ie9">Re-digite sua senha</label>
+                    <div class="controls">
+                        <div class="input-icon left">
+                            <i class="icon-ok"></i>
+                            <input class="m-wrap placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-digite sua senha" name="rpassword" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button id="register-back-btn" type="button" class="btn">
+                        <i class="m-icon-swapleft"></i>  Voltar
+                    </button>
+                    <button type="submit" id="register-submit-btn" class="btn green pull-right">
+                        Inscrever-se <i class="m-icon-swapright m-icon-white"></i>
+                    </button>
+                </div>
+            </form>*@
+    </div>
+    <div class="copyright">
+        @DateTime.Now.Year &copy; e-Qualy software de Gestão da Qualidade
+    </div>
+    <!-- END COPYRIGHT -->
+    <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- BEGIN CORE PLUGINS -->
+    <script src="@Url.Content("~/Content/assets/plugins/jquery-1.10.1.min.js")" type="text/javascript"></script>
+    <script src="~/Content/assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+    <script src="~/Content/assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <!--[if lt IE 9]>
+    <script src="~/content/assets/plugins/excanvas.min.js"></script>
+    <script src="~/content/assets/plugins/respond.min.js"></script>
+    <![endif]-->
+    <script src="~/Content/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/plugins/jquery.cookie.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script src="~/Content/assets/plugins/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/plugins/backstretch/jquery.backstretch.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/content/assets/plugins/select2/select2.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script src="~/Content/assets/scripts/app.js" type="text/javascript"></script>
+    <script src="~/Content/assets/scripts/login-soft.js" type="text/javascript"></script>
+
+    <script src="~/Scripts/plugins/jquery.unobtrusive-ajax.min.js" type="text /javascript"></script>
+    <script src="~/Scripts/plugins/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+
+    <script src="~/Scripts/utils.js"></script>
+    <script src="~/Scripts/Login/login.js"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script>
+        jQuery(document).ready(function () {
+            App.init();
+            Login.init();
+        });
+    </script>
+
+    <!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

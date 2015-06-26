@@ -1,0 +1,107 @@
+/* ===================================================
+*
+* loading.css
+* http://www.ocxers.com/demo/loading.html
+* ===================================================
+* Copyright 2013 Sharing.Chi
+*
+* Feel free to use (download, change or whatever) this plugin
+* Please don't hesitate to email me if any problems
+* ocxers@gmail.com
+*
+* ========================================================== */
+
+.loader-backdrop
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9998;
+    background-color: #000000;
+    opacity: 0.6;
+    filter: alpha(opacity=5);
+}
+.loader-simbol
+{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 9999;
+    overflow: auto;
+    /* this width is your loading img's width */
+    /*width: 300px;*/
+    /* please change the margin-top and margin-left here 
+     * make sure the margin-top equals 1/2 loading img's height 
+     * and the margin-left equals 1/2 loading img's width */
+    margin: -50px 0 0 -100px;
+    color:#fff;
+    font-size: 25px;
+    text-align: left;
+    width: 330px;
+}
+
+.loader-simbol img
+{
+    height: 80px;
+    width: 80px;
+}
+
+.loader-simbol div
+{
+    float: right;
+    padding-top: 25px;
+    
+}
+
+.loader-simbol div span
+{
+    font-size: 15px;
+    
+}
+
+/******************
+    loadar modal
+    *************/
+
+.loader-modal
+{
+    min-height: 79%;
+    min-width: 69%;
+    height: 130%;
+    width: 125%;
+    position: fixed;
+    z-index: 9998;
+    background-color: #000000;
+    opacity: 0.6;
+    filter: alpha(opacity=5);
+    text-align: center;
+    margin-left: -10px;
+    top: 0;
+    left: 0
+}
+
+.loader-modal img
+{
+    height: 60px;
+    width: 60px;
+    top: 50%;
+    left: 50%;
+}
+
+.loader-modal div
+{
+    color:#fff;
+    font-size: 15px;
+    float: left;
+    padding: 15% 0 0 35%;
+    text-align: center;
+    
+}
+
+.loader-modal div span
+{
+    font-size: 15px;
+}    
+    

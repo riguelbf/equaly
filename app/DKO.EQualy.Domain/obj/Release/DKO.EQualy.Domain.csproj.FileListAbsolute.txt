@@ -1,0 +1,16 @@
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.Domain\bin\Release\DKO.EQualy.Domain.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.Domain\bin\Release\DKO.EQualy.Domain.pdb
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.Domain\obj\Release\DKO.EQualy.Domain.csprojResolveAssemblyReference.cache
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.Domain\obj\Release\DKO.EQualy.Domain.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.Domain\obj\Release\DKO.EQualy.Domain.pdb
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.Domain\bin\Release\DKO.Equaly.DTO.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.Domain\bin\Release\DKO.Equaly.Projection.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.Domain\bin\Release\DKO.Equaly.Service.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.Domain\bin\Release\System.Web.Mvc.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.Domain\bin\Release\Microsoft.Practices.ServiceLocation.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.Domain\bin\Release\DKO.Equaly.DTO.pdb
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.Domain\bin\Release\DKO.Equaly.Projection.pdb
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.Domain\bin\Release\DKO.Equaly.Service.pdb
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.Domain\bin\Release\System.Web.Mvc.xml
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.Domain\bin\Release\Microsoft.Practices.ServiceLocation.pdb
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.Domain\bin\Release\Microsoft.Practices.ServiceLocation.xml

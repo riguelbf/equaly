@@ -1,0 +1,5 @@
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.Projection\bin\Debug\DKO.Equaly.Projection.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.Projection\bin\Debug\DKO.Equaly.Projection.pdb
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.Projection\obj\Debug\DKO.Equaly.Projection.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.Projection\obj\Debug\DKO.Equaly.Projection.pdb
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.Projection\obj\Debug\DKO.Equaly.Projection.csprojResolveAssemblyReference.cache

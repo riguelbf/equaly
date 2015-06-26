@@ -1,0 +1,68 @@
+﻿@using System.Collections
+@using System.Diagnostics
+@using DKO.EQualy.Domain.Entities
+@using DKO.Equaly.Service
+@using DKO.Equaly.Service.Concrete
+@using DKO.EQualy.UI.Controllers
+@using DKO.EQulay.Infra.Repositories
+
+@model List<DKO.EQualy.Domain.Entities.Menu>
+<div class="page-sidebar nav-collapse collapse">
+    <!-- BEGIN SIDEBAR MENU -->
+    <ul class="page-sidebar-menu">
+        <li>
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+            <div class="sidebar-toggler hidden-phone"></div>
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+        </li>
+        <li>
+            <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+            <form class="sidebar-search">
+                <div class="input-box">
+                    <a href="javascript:;" class="remove"></a>
+                    <input type="text" placeholder="Pesquisar..." />
+                    <input type="button" class="submit" value=" " />
+                </div>
+            </form>
+            <!-- END RESPONSIVE QUICK SEARCH FORM -->
+        </li>
+        @*@{
+            var menu = new MenuController(new MenuService(new MenuRepository(), new AtividadeRepository(), new MensagemRepository(), new UsuarioRepository())).ObterMenuLateral();
+        }*@
+        @if (Model != null)
+        {
+            foreach (var menuItem in Model)
+            {
+                <li>
+                    @if (menuItem.MenuItems.Count <= 0)
+                    {
+                        <a href="~/@menuItem.Controller/@menuItem.Action">
+                            <i class="@menuItem.ClassIcon"></i>
+                            <span class="title">@menuItem.Name</span>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="">
+                            <i class="@menuItem.ClassIcon"></i>
+                            <span class="title">@menuItem.Name</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            @foreach (var subMenu in menuItem.MenuItems)
+                            {   
+                                <li>
+                                    <a href="~/@subMenu.ControllerName/@subMenu.ActionName">
+                                        <i class="@subMenu.ClassIcon"></i> 
+                                        @if (subMenu.Name != null){@subMenu.Name}
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </li>
+            }
+        }
+    </ul>
+    <!-- END SIDEBAR MENU -->
+</div>

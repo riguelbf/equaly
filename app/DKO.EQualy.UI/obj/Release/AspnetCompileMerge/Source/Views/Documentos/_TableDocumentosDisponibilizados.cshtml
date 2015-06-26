@@ -1,0 +1,35 @@
+﻿@model List<DKO.Equaly.Projection.Documentos.DocumentoDisponibilizadoProjection>
+<table class="table table-hover" id="tabelaDocumentosDisponibilizados">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Tipo</th>
+            <th>Titulo</th>
+            <th>Setor reponsável</th>
+            <th>Armazenamento</th>
+            <th>Validade</th>
+            <th>Download</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var documentosDisponivel in Model)
+            {
+                <tr>
+                    <td>@documentosDisponivel.Codigo</td>
+                    <td>@documentosDisponivel.Tipo</td>
+                    <td>@documentosDisponivel.Titulo</td>
+                    <td>@documentosDisponivel.SetorResponsavel</td>
+                    <td>@documentosDisponivel.Armazenamento</td>
+                    <td>@documentosDisponivel.Validade</td>
+                    
+                    <td>
+                        <a href="@Url.Action("DownloadDocDisponivel", "Documentos", new { documentoId = @documentosDisponivel.Codigo })" rel="tooltip" title="Download arquivo" class="icn-only"><img src="@Url.Content("~")/Content/assets/img/iconGrid/@documentosDisponivel.NomeIcone" style="height: 30px;" /></a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+

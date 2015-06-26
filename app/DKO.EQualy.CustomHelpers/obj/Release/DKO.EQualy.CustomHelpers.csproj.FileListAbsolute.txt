@@ -1,0 +1,11 @@
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.CustomHelpers\bin\Release\DKO.EQualy.CustomHelpers.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.CustomHelpers\bin\Release\DKO.EQualy.CustomHelpers.pdb
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.CustomHelpers\bin\Release\DKO.EQualy.Domain.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.CustomHelpers\bin\Release\DKO.Equaly.DTO.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.CustomHelpers\bin\Release\DKO.Equaly.Projection.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.CustomHelpers\bin\Release\DKO.EQualy.Domain.pdb
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.CustomHelpers\bin\Release\DKO.Equaly.DTO.pdb
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.CustomHelpers\bin\Release\DKO.Equaly.Projection.pdb
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.CustomHelpers\obj\Release\DKO.EQualy.CustomHelpers.csprojResolveAssemblyReference.cache
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.CustomHelpers\obj\Release\DKO.EQualy.CustomHelpers.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.CustomHelpers\obj\Release\DKO.EQualy.CustomHelpers.pdb

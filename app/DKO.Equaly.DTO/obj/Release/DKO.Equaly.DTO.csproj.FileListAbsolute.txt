@@ -1,0 +1,9 @@
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.DTO\bin\Release\DKO.Equaly.DTO.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.DTO\bin\Release\DKO.Equaly.DTO.pdb
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.DTO\bin\Release\DKO.EQualy.Domain.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.DTO\bin\Release\DKO.Equaly.Projection.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.DTO\bin\Release\DKO.Equaly.Projection.pdb
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.DTO\bin\Release\DKO.EQualy.Domain.pdb
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.DTO\obj\Release\DKO.Equaly.DTO.csprojResolveAssemblyReference.cache
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.DTO\obj\Release\DKO.Equaly.DTO.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.DTO\obj\Release\DKO.Equaly.DTO.pdb

@@ -1,0 +1,41 @@
+﻿
+@model List<DKO.Equaly.Projection.NaoConformidade.NaoConformidadeRegistradaProjection>
+
+<table class="table table-hover" id="tabelaNaoConformidade">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Data de abertura</th>
+            <th>Titulo</th>
+            <th>Reclamante</th>
+            <th>Tel. Reclamante</th>
+            <th>Responsável</th>
+            <th>Status</th>
+            <th>Prazo</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var rnc in Model)
+            {
+                <tr>
+                    <td>@rnc.Codigo</td>
+                    <td>@rnc.DataAbertura.ToShortDateString()</td>
+                    <td>@rnc.Titulo</td>
+                    <td>@rnc.NomeReclamante</td>
+                    <td>@rnc.TelefoneReclamante</td>
+                    <td>@rnc.NomeResponsavelAbertura</td>
+                    <td>@rnc.Status</td>
+                    <td><img src="@Url.Content("~/Content/assets/img/iconGrid/")@rnc.IndicadorPrazo" alt="Indicador de prazo"/></td>
+                    <td>
+                        <a href="@Url.Action("EditarRnc", "NaoConformidades", new { naoConformidadeId = @rnc.Codigo })" rel="tooltips" title="Edita uma não conformidade criada" title="Editar" name="btnEditar" class="btn icn-only"><i class="icon-edit"></i></a>
+                        <a href="@Url.Action("ExcluirRnc", "NaoConformidades", new { naoConformidadeId = @rnc.Codigo })" rel="tooltip" title="Exclui uma não conformidade" class="btn red icn-only" name="btnExcluir"><i class="icon-trash"></i></a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<script src="~/Scripts/NaoConformidade/tabelaNaoConformidade.js"></script>

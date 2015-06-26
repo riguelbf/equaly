@@ -1,0 +1,197 @@
+﻿@model DKO.Equaly.DTO.NaoConformidade.AnaliseDaCausaDto
+<div class="row-fluid">
+    <div class="span12">
+        <h3>Análise da causa</h3><br />
+        @Html.HiddenFor(model => model.CausaRaizId, new { @id = "hfCausaRaizId" })
+        @Html.HiddenFor(model => model.NaoConformidadeId, new { @id = "hfNaoConformidadeId" })
+        <form id="frmAnaliseDaCausa">
+            <div class="accordion in collapse" id="accordion1" style="max-height: 450px;">
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1" href="#collapse_1">
+                            <i class="icon-qrcode"></i>
+                            Causa raiz
+                        </a>
+                    </div>
+                    <div id="collapse_1" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                            <div class="row-fluid">
+                                <div class="span12 ">
+                                    <div class="control-group">
+                                        <div class="input-append date date-picker" data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
+                                            @Html.LabelFor(model => model.DataConclusao, new { @class = "control-label" })
+                                            @Html.TextBoxFor(model => model.DataConclusao, new { @class = "m-wrap m-ctrl-medium date-picker", @id = "txtDataConclusao" })<span class="add-on"><i class="icon-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                                <div class="span12 ">
+                                    <div class="control-group">
+                                        @Html.LabelFor(model => model.DefinicaoDaCausaRaiz, new { @class = "control-label" })
+                                        <div class="controls">
+                                            @Html.TextAreaFor(model => model.DefinicaoDaCausaRaiz, new { @class = "span12 m-wrap", @id = "txtDefinicaoCausa" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1" href="#collapse_2">
+                            <i class="icon-tasks"></i>
+                            5 por quês?
+                        </a>
+                    </div>
+                    <div id="collapse_2" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                            <div style="margin-bottom:50px; width: 100%;">
+                                <button type="button" class="btn black" id="btnNovoPorQue" title="Incluir novo porque" rel="tooltip" style="float: right;">Novo <i class="icon-plus"></i></button>
+                            </div>
+                            <div style="border: solid 1px #a9a9a9;padding: 5px;">
+                                <table class="table table-hover" id="tabela5Porques" style="margin-top: 10px;">
+                                    <thead>
+                                        <tr>
+                                            <th>Indice</th>
+                                            <th>UsuarioId</th>
+                                            <th>Id</th>
+                                            <th>#</th>
+                                            <th>Pergunta</th>
+                                            <th>Resposta</th>
+                                            <th>Para</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (Model != null)
+                                        {
+                                            foreach (var porque in Model.CincoPorQue)
+                                            {
+                                                <tr>
+                                                    <td>@porque.Indice</td>
+                                                    <td>@porque.UsuarioDestinoId</td>
+                                                    <td>@porque.Id</td>
+                                                    <td>Por quê</td>
+                                                    <td>@porque.Pergunta</td>
+                                                    <td>@porque.Resposta</td>
+                                                    <td>@porque.NomeUsuarioDestino</td>
+                                                    <td>
+                                                        <button type="button" name="btnEditarPorque" class="btn icn-only" title="Editar o o por quê selecionado"><i class="icon-edit"></i></button>
+                                                        <button type="button" name="btnExcluirPorQue" class="btn red icn-only" title="Excluir o por quê selecionado"><i class="icon-trash"></i></button>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1" href="#collapse_3">
+                            <i class="icon-group"></i>
+                            Equipe envolvida
+                        </a>
+                    </div>
+                    <div id="collapse_3" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                            <div class="row-fluid">
+                                <div class="span6">
+                                    <div class="portlet box grey">
+                                        <div class="portlet-title">
+                                            <div class="caption"><i class="icon-cogs"></i>Usuários disponíveis</div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <table class="table table-hover" id="tabelaEquipeDisponivel">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Código</th>
+                                                        <th>Nome</th>
+                                                        <th>Setor</th>
+                                                        <th>#</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @if (@Model != null)
+                                                    {
+                                                        foreach (var equipeDisponivel in Model.EquipeEnvolvidaDisponivel)
+                                                        {
+                                                            <tr>
+                                                                <td>@equipeDisponivel.Id</td>
+                                                                <td>@equipeDisponivel.Nome</td>
+                                                                <td>@equipeDisponivel.NomeSetor</td>
+                                                                <td>
+                                                                    <span id="btnAddUsuarioDisponivel" class="btn" tooltip="remove selecionado"><i class="icon-long-arrow-right"></i></span>
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span6">
+                                    <div class="portlet box green">
+                                        <div class="portlet-title">
+                                            <div class="caption"><i class="icon-cogs"></i>Usuários selecionados</div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <table class="table table-hover" id="tabelaEquipeSelecionada">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Código</th>
+                                                        <th>Nome</th>
+                                                        <th>Setor</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @if (@Model != null)
+                                                    {
+                                                        foreach (var equipeSelecionada in Model.EquipeEnvolvidaSelecionada)
+                                                        {
+                                                            <tr>
+                                                                <td>
+                                                                    <span id="btnRemoveUsuarioDisponivel" class="btn"><i class="icon-long-arrow-left"></i></span>
+                                                                </td>
+                                                                <th>@equipeSelecionada.Id</th>
+                                                                <td>@equipeSelecionada.Nome</td>
+                                                                <td>@equipeSelecionada.NomeSetor</td>
+                                                            </tr>
+                                                        }
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions" style="text-align: right;">
+                <button type="button" data-dismiss="modal" class="btn"><i class="m-icon-swapleft"></i> Cancelar</button>
+                @if (@Model != null && @Model.CausaRaizId <= 0)
+                {
+
+                    <button type="button" class="btn green" id="btnAjax"><i class="icon-ok"></i> Salvar</button>
+                }
+                else
+                {
+                    <button type="button" class="btn green" id="btnAjax"><i class="icon-ok"></i> Atualizar</button>
+                }
+            </div>
+        </form>
+        <!-- scripts -->
+        <script src="~/Scripts/NaoConformidade/AnaliseDaCausa/analiseDaCausa.js"></script>
+        <script src="~/Scripts/NaoConformidade/AnaliseDaCausa/manterCincoPorque.js"></script>
+    </div>
+</div>
+
+

@@ -1,0 +1,144 @@
+﻿@using DKO.EQualy.Domain.Entities
+@using DKO.EQualy.UI.Controllers
+@using NaoConformidade = DKO.EQualy.Domain.Enum.NaoConformidade
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="pt" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <title>E-Qualy</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Sistema de gerencia da qualidade" name="description" />
+    <meta content="Riguel Figueiro" name="author" />
+    @RenderSection("customStyles", required: false)
+    @Scripts.Render("~/bundles/assets/scripts")
+    @Styles.Render("~/bundles/assets")
+    @Scripts.Render("~/bundles/jqueryval")
+    <link href="~/Content/assets/fonts/font.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/favicon.png" />
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="page-header-fixed" data-ng-app="main" data-ng-controller="RootController">
+    <!--[if lt IE 7]>
+          <p class="chromeframe">Você está usando um <strong>desatualizado</strong> navegador. Por favor <a href="http://browsehappy.com/">atualize seu navegador</a> ou <a href="http://www.google.com/chromeframe/?redirect=true">ative o Google Chrome Frame</a> para melhorar a sua experiência.</p>
+      <![endif]-->
+    <!-- BEGIN HEADER -->
+    <div id="loader" style="display: none;" class="loader-backdrop">
+        <div class="loader-simbol">
+            <img src="~/Content/assets/img/ajax-modal-loading.gif" />
+            <div>
+                Aguarde...<br /><span>processando a operação solicitada</span>
+            </div>
+        </div>
+    </div>
+    <div class="header navbar navbar-inverse navbar-fixed-top">
+        <!-- BEGIN TOP NAVIGATION BAR -->
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <!-- BEGIN LOGO -->
+                <a class="brand" href="index.html">
+                    <img src="~/content/assets/img/logoEQualy.png" style="height:30px;" alt="logo" />
+                </a>
+                <!-- END LOGO -->
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+                    <img src="~/content/assets/img/menu-toggler.png" alt="" />
+                </a>
+                <!-- END RESPONSIVE MENU TOGGLER -->
+                <!-- BEGIN TOP NAVIGATION MENU -->
+                @*@Html.Partial("Partials/_TopNavigationMenuPartial")*@
+                @{ Html.RenderAction("ObterMenuSuperior", "Menu"); }
+                <!-- END TOP NAVIGATION MENU -->
+            </div>
+        </div>
+        <!-- END TOP NAVIGATION BAR -->
+    </div>
+    <!-- END HEADER -->
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+        <!-- BEGIN SIDEBAR -->
+        @{ Html.RenderAction("ObterMenuLateral", "Menu"); }
+        @*@Html.Partial("Partials/_SideBarPartial")*@
+        <!-- END SIDEBAR -->
+        <!-- BEGIN PAGE -->
+        <div class="page-content">
+            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <div id="portlet-config" class="modal hide">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"></button>
+                    <h3>Widget Settings</h3>
+                </div>
+                <div class="modal-body">
+                    Widget settings form goes here
+                </div>
+            </div>
+            <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <!-- BEGIN PAGE CONTAINER-->
+            <div class="container-fluid">
+                <!-- BEGIN PAGE HEADER-->
+                @Html.Partial("Partials/_PageHeaderPartial")
+                <!-- END PAGE HEADER-->
+                @RenderBody()
+                
+            </div>
+            <!-- END PAGE CONTAINER-->
+        </div>
+        <!-- END PAGE -->
+    </div>
+    <!-- END CONTAINER -->
+    <!-- BEGIN FOOTER -->
+    <div class="footer">
+        <div class="footer-inner">
+            @DateTime.Now.Year &copy; e-Qualy Systems
+        </div>
+        <div class="footer-tools">
+            <span class="go-top">
+                <i class="icon-angle-up"></i>
+            </span>
+        </div>
+    </div>
+    
+    <!-- END FOOTER -->
+    <!-- SCRIPTS PLUGIN -->
+    
+    <script>
+        function ativaLinkMenu() {
+
+            var linkMenu = document.URL;
+
+            if (linkMenu.indexOf('NaoConformidades') > 0) {
+                $('.page-sidebar-menu').find('span.title').eq(0).parent().parent().css('background-color', '#a52a2a');
+                $('.page-sidebar-menu').find('span.title').eq(0).parent().parent().push('<span class="selected"></span>');
+            }
+                
+            else if(linkMenu.indexOf('Documentos') > 0)
+                $('.page-sidebar-menu').find('span.title').eq(1).parent().parent().css('background-color', '#4b8df8');
+            else if(linkMenu.indexOf('Indicadores') > 0 )
+                $('.page-sidebar-menu').find('span.title').eq(2).parent().parent().css('background-color', '#35aa47');
+        };
+        jQuery(document).ready(function () {
+            App.init(); // initlayout and core plugins
+            //Index.init();
+            //Index.initJQVMAP(); // init index page's custom scripts
+            //Index.initCalendar(); // init index page's custom scripts
+            //Index.initCharts(); // init index page's custom scripts
+            //Index.initChat();
+            //Index.initMiniCharts();
+            //Index.initDashboardDaterange();
+            //Index.initIntro();
+
+            ativaLinkMenu();
+        });
+    </script>
+
+    @RenderSection("scripts", required: false)
+    
+    <!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

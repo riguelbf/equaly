@@ -1,0 +1,4 @@
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.Reports\bin\Debug\DKO.Equaly.Reports.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.Reports\bin\Debug\DKO.Equaly.Reports.pdb
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.Reports\obj\Debug\DKO.Equaly.Reports.dll
+C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.Reports\obj\Debug\DKO.Equaly.Reports.pdb

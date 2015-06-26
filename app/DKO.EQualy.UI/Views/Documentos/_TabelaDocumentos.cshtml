@@ -1,0 +1,53 @@
+﻿@model List<DKO.Equaly.Projection.Documentos.DocumentoSolicitadoProjection>
+<table class="table table-hover" id="tabelaDocumentos">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Titulo</th>
+            <th>Setor</th>
+            <th>Solicitante</th>
+            <th>Data Criação</th>
+            <th>Fase</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var documentos in Model)
+            {
+                <tr>
+                    <td>@documentos.Codigo</td>
+                    <td>@documentos.Titulo</td>
+                    <td>@documentos.Setor</td>
+                    <td>@documentos.Solicitante</td>
+                    <td>@documentos.DataCriacao</td>
+                    <td>@documentos.Fase</td>
+                    <td>
+                        <a href="@Url.Action("EditarDocumento", "Documentos", new { documentoId = @documentos.Codigo })" rel="tooltips" data-original-title="Edita um documento criado" title="Editar" name="btnEditar" class="btn icn-only"><i class="icon-edit"></i></a>
+                        <a href="@Url.Action("ExcluirDocumento", "Documentos", new { documentoId = @documentos.Codigo })" rel="tooltip" title="Excluir" class="btn red icn-only" name="btnExcluir"><i class="icon-trash"></i></a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<script>
+    $("[name=btnEditar]").on('click', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        $.get(url, function (data) {
+            $('body').modalmanager();
+            $(data).load(url, '', function () {
+                $(data).modal();
+            });
+        });
+    });
+
+    $("[name=btnExcluir]").on('click', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        openDialogConfirm('Desja confirmar a exclusão do documento?', 'Confirmar operação', url);
+    });
+</script>
