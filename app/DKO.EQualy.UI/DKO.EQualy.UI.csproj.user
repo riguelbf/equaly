@@ -8,6 +8,7 @@
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <NameOfLastUsedPublishProfile>EQualy</NameOfLastUsedPublishProfile>
     <ProjectView>ProjectFiles</ProjectView>
+    <UseIISExpress>true</UseIISExpress>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

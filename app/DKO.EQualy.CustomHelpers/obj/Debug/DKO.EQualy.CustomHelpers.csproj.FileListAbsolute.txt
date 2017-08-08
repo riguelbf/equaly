@@ -9,3 +9,14 @@ C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.CustomHelpers\bin\Debug\DKO.
 C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.CustomHelpers\obj\Debug\DKO.EQualy.CustomHelpers.csprojResolveAssemblyReference.cache
 C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.CustomHelpers\obj\Debug\DKO.EQualy.CustomHelpers.dll
 C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.EQualy.CustomHelpers\obj\Debug\DKO.EQualy.CustomHelpers.pdb
+C:\Users\riguel_figueiro\Documents\equaly\app\DKO.EQualy.CustomHelpers\bin\Debug\DKO.EQualy.CustomHelpers.dll
+C:\Users\riguel_figueiro\Documents\equaly\app\DKO.EQualy.CustomHelpers\bin\Debug\DKO.EQualy.CustomHelpers.pdb
+C:\Users\riguel_figueiro\Documents\equaly\app\DKO.EQualy.CustomHelpers\bin\Debug\DKO.EQualy.Domain.dll
+C:\Users\riguel_figueiro\Documents\equaly\app\DKO.EQualy.CustomHelpers\bin\Debug\DKO.Equaly.DTO.dll
+C:\Users\riguel_figueiro\Documents\equaly\app\DKO.EQualy.CustomHelpers\bin\Debug\DKO.Equaly.Projection.dll
+C:\Users\riguel_figueiro\Documents\equaly\app\DKO.EQualy.CustomHelpers\bin\Debug\DKO.EQualy.Domain.pdb
+C:\Users\riguel_figueiro\Documents\equaly\app\DKO.EQualy.CustomHelpers\bin\Debug\DKO.Equaly.DTO.pdb
+C:\Users\riguel_figueiro\Documents\equaly\app\DKO.EQualy.CustomHelpers\bin\Debug\DKO.Equaly.Projection.pdb
+C:\Users\riguel_figueiro\Documents\equaly\app\DKO.EQualy.CustomHelpers\obj\Debug\DKO.EQualy.CustomHelpers.csprojResolveAssemblyReference.cache
+C:\Users\riguel_figueiro\Documents\equaly\app\DKO.EQualy.CustomHelpers\obj\Debug\DKO.EQualy.CustomHelpers.dll
+C:\Users\riguel_figueiro\Documents\equaly\app\DKO.EQualy.CustomHelpers\obj\Debug\DKO.EQualy.CustomHelpers.pdb

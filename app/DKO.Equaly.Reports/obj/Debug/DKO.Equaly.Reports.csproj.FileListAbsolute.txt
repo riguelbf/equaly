@@ -2,3 +2,8 @@ C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.Reports\bin\Debug\DKO.Equaly
 C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.Reports\bin\Debug\DKO.Equaly.Reports.pdb
 C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.Reports\obj\Debug\DKO.Equaly.Reports.dll
 C:\DKO_IT\Projects\EQualy\DKO.Equaly\app\DKO.Equaly.Reports\obj\Debug\DKO.Equaly.Reports.pdb
+C:\Users\riguel_figueiro\Documents\equaly\app\DKO.Equaly.Reports\bin\Debug\DKO.Equaly.Reports.dll
+C:\Users\riguel_figueiro\Documents\equaly\app\DKO.Equaly.Reports\bin\Debug\DKO.Equaly.Reports.pdb
+C:\Users\riguel_figueiro\Documents\equaly\app\DKO.Equaly.Reports\obj\Debug\DKO.Equaly.Reports.csprojResolveAssemblyReference.cache
+C:\Users\riguel_figueiro\Documents\equaly\app\DKO.Equaly.Reports\obj\Debug\DKO.Equaly.Reports.dll
+C:\Users\riguel_figueiro\Documents\equaly\app\DKO.Equaly.Reports\obj\Debug\DKO.Equaly.Reports.pdb
